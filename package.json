@@ -1,0 +1,25 @@
+{
+  "name": "PetAdoptionDashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "ajax": "^0.0.4",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snakevirgo/PetAdoptionDashboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snakevirgo/PetAdoptionDashboard/issues"
+  },
+  "homepage": "https://github.com/snakevirgo/PetAdoptionDashboard#readme"
+}
