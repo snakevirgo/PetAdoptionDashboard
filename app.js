@@ -1,4 +1,6 @@
-const fetch = require('node-fetch');
+//declare fetch
+const fetch = require('node-fetch')
+
 // functions that gets data from petfinder api
 require('dotenv').config();
 
