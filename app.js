@@ -1,13 +1,13 @@
-// functions that gets data from petfinder api
 const fetch = require('node-fetch');
+// functions that gets data from petfinder api
 require('dotenv').config();
 
 console.log(process.env);
-
+//access token
 const token = process.env.TOKEN_ACCESS;
 const token_type = process.env.TOKEN_TYPE;
 
-// Call variables
+// Variables parameters: organization and type
 let org = 'RI77';
 let type = 'Dog';
 
