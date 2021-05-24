@@ -84,7 +84,9 @@ app.get('/', (request, response) => {
 })
 
 
-
+app.get('/results', (request, response) => {
+    response.send(DATA);
+});
 
 let addToDOM = ( element, item) => {
     let div = document.createElement(element);
@@ -125,4 +127,6 @@ let addToDOM = ( element, item) => {
     
 }
 
-
+app.listen(8080, () => {
+    console.log('Example app listening at http://localhost:8080');
+  });
