@@ -5,5 +5,19 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;    
+  
 }
 
+.results{
+    background-color: aliceblue;
+}
+.pet_intro:hover{
+    background-color: black;
+}
+
+/* .description{
+    color: purple;
+} */
+textarea{
+    color:blue;
+}
