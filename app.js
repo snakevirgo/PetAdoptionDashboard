@@ -91,14 +91,14 @@ app.get('/', (request, response) => {
 
 })
 
-// app.get('/results', (request, response) => {
-//     response.send(DATA);
-// });
+app.get('/jsonDATA', (request, response) => {
+    response.send(DATA);
+});
 
 let addToDOM = ( element, item) => {
     let div = document.createElement(element);
     let image = document.createElement('img');
-    let caption = document.createElement('textarea') // <textarea></
+    let caption = document.createElement('textarea')// <textarea></
     let title = document.createElement('label') // <label></label>
    
     div.setAttribute('class', 'pet_intro');
