@@ -38,7 +38,7 @@ const fs = require('fs');
 require('dotenv').config();
 const secret_key = process.env.SECRET_KEY;
 const key = process.env.KEY;
-
+const app = express();
 
 const { JSDOM } = jsdom;// functions that gets data from petfinder api
 
@@ -56,8 +56,9 @@ let result = document.getElementById('results');
 // Variables parameters: organization and type
 let org = 'RI77';
 let type = 'Dog';
+let postcode = '97007';
 
-const app = express();
+
 var DATA = [];
 app.get('/', (request, response) => {
     fetch('https://api.petfinder.com/v2/oauth2/token', {
@@ -81,7 +82,12 @@ app.get('/', (request, response) => {
         token_type = data.token_type;
         expires = new Date().getTime() + (data.expires_in * 1000);
 
-        fetch('https://api.petfinder.com/v2/animals?organization=' + org + '&type=' + type, {
+        // GET https://api.petfinder.com/v2/animals/type=Dog/
+        //iris code
+        //fetch('https://api.petfinder.com/v2/animals?organization=' + org + '&type=' + type, {
+
+
+        fetch('http://api.petfinder.com/pet.getRandom?key=' + key + '&animal=cat&location=' + postcode + '&output=basic&format=json&callback=?', {
             headers: {
                 'Authorization': token_type + ' ' + token,
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -91,10 +97,15 @@ app.get('/', (request, response) => {
             }).then(function (resp) {
 
                 // Return the API response as JSON
+                // console.log(resp);
+                console.log(resp.json());
+
                 return resp.json();
 
             }).then(function (data) {
                 DATA = data.animals;
+                console.log(data);
+
                 // Log the pet data
                 // your content will be here
                 data.animals.forEach(val => {
@@ -120,48 +131,54 @@ app.get('/results', (request, response) => {
     response.send(DATA);
 });
 
-let addToDOM = ( element, item) => {
-    let div = document.createElement(element);
-    let image = document.createElement('img');
-    let caption = document.createElement('textarea') // <textarea></
-    let title = document.createElement('label') // <label></label>
-    div.style.display = "inline-block"
-    div.style.textAlign = "center"
-    div.style.margin = "1%"
-    div.onmouseover = function() {
-        this.style.backgroundColor = 'black';
-        this.style.color = 'white';
-    };
-    div.onmouseout = function() {
-        this.style.backgroundColor = 'transparent';
-        this.style.color = 'black';
-    }
-    image.src = item.photos[0].medium
-    // image.height = "300"
-    // image.width = "240"
-    caption.innerHTML = item.description
-    console.log(item.description)
-    title.style.fontSize ="small"
-    title.style.textAlign = "center"
-    title.innerHTML = item.name
+// let addToDOM = ( element, item) => {
+//     // let par = document.createElement('par');
+//     let div = document.createElement(element);
+//     let image = document.createElement('img');
+//     let caption = document.createElement('textarea') // <textarea></
+//     let title = document.createElement('label') // <label></label>
+//     div.style.display = "inline-block"
+//     div.style.textAlign = "center"
+//     div.style.margin = "1%"
+//     div.onmouseover = function() {
+//         this.style.backgroundColor = 'black';
+//         this.style.color = 'white';
+//     };
+//     div.onmouseout = function() {
+//         this.style.backgroundColor = 'transparent';
+//         this.style.color = 'black';
+//     }
+//     image.src = item.photos[0].medium
+//     // image.height = "300"
+//     // image.width = "240"
+//     caption.innerHTML = item.description
+//     console.log(item.description)
+//     title.style.fontSize ="small"
+//     title.style.textAlign = "center"
+//     title.innerHTML = item.name
     
 
-    div.append(image)  
-    div.append(document.createElement('br'));
-    div.append(title)
-    div.append(document.createElement('br'));
-    div.append(caption)    
+//     div.append(image)  
+//     div.append(document.createElement('br'));
+//     div.append(title)
+//     div.append(document.createElement('br'));
+//     div.append(caption)    
 
 
      
-    result.append(div);
+//     result.append(div);
 
     
-}
+// }
 
 app.listen(8080, () => {
     console.log('Example app listening at http://localhost:8080');
   });
+
+
+
+
+  
 
 
 
