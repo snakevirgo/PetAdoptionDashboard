@@ -31,7 +31,7 @@ let result = document.getElementById('results');
 
 // Variables parameters: organization and type
 let org = 'RI77';
-let type = 'adoptable';
+let status = 'adoptable';
 
 
 var DATA = [];
@@ -57,7 +57,8 @@ app.get('/', (request, response) => {
         token_type = data.token_type;
         expires = new Date().getTime() + (data.expires_in * 1000);
 
-        fetch('https://api.petfinder.com/v2/animals?organization=' + org + '&status=' + type, {
+        // fetch('https://api.petfinder.com/v2/animals?organization=' + org + '&status=' + type, {
+        fetch('https://api.petfinder.com/v2/animals?status=' + status, {
             headers: {
                 'Authorization': token_type + ' ' + token,
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -70,6 +71,7 @@ app.get('/', (request, response) => {
                 return resp.json();
 
             }).then(function (data) {
+                // console.log(data)
                 DATA = data.animals;
                 // Log the pet data
                 // your content will be here
@@ -113,7 +115,7 @@ let addToDOM = ( element, item) => {
         this.style.backgroundColor = 'transparent';
         this.style.color = 'black';
     }
-    image.setAttribute('src', item.photos[0].medium);
+    // image.setAttribute('src', item.photos[0].medium);
     // image.src = item.photos[0].medium
     image.setAttribute('alt', `image of ${item.name}`);
     // image.height = "300"
@@ -135,19 +137,6 @@ let addToDOM = ( element, item) => {
      
     result.append(div);
 }
-
-
-
-
-
-
-
-
-
-
-
-    
-
 
 app.listen(8080, () => {
     console.log('Example app listening at http://localhost:8080');
