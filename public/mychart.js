@@ -7,17 +7,7 @@
 // console.log("hello world")
 // const root = document.getElementById("root");
 
-// const displayPet = () => {
-//     const header = document.createElement("div");
-//     header.classList.add("header");
 
-//     const headerTx = document.createElement("h1");
-//     headerTx.classList.add("header-text");
-//     headerTx.textContent = "The PETS";
-
-//     header.appendChild(headerTx);
-//     root.appendChild(header);
-// }
 var options = {
   responsive: true,
   title: {
@@ -83,7 +73,7 @@ var doughnutData = {
 // Get the context of the canvas element we want to select
 var chart = document.getElementById("myChart").getContext("2d");
 var myChart = new Chart(chart, {
-  type: 'doughnut',
+  type: 'pie',
   data: doughnutData,
   options: options,
 

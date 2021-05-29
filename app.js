@@ -32,7 +32,7 @@ let result = document.getElementById('results');
 // Variables parameters: organization and type
 let org = 'RI77';
 let status = 'adoptable';
-
+let city = 'Portland, OR';
 
 var DATA = [];
 app.get('/', (request, response) => {
@@ -58,7 +58,7 @@ app.get('/', (request, response) => {
         expires = new Date().getTime() + (data.expires_in * 1000);
 
         // fetch('https://api.petfinder.com/v2/animals?organization=' + org + '&status=' + type, {
-        fetch('https://api.petfinder.com/v2/animals?status=' + status, {
+        fetch('https://api.petfinder.com/v2/animals?status=' + status + "&location=" + city +'&limit=100' , {
             headers: {
                 'Authorization': token_type + ' ' + token,
                 'Content-Type': 'application/x-www-form-urlencoded'
