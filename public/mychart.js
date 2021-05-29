@@ -4,82 +4,132 @@
 // declare const pet[]
 //fontend - make an object, store all info i need in a dictionary, map from organization to pets, display
 // const pets=[]
-// const fetch = require('node-fetch');
-// require('dotenv').config();
-// const secret_key = process.env.SECRET_KEY;
-// const key = process.env.KEY;
-// fetch('https://api.petfinder.com/v2/oauth2/token', {
-//     method: 'POST',
-//     body: 'grant_type=client_credentials&client_id=' + key + '&client_secret=' + secret_key,
-//     headers: {
-//         'Content-Type': 'application/x-www-form-urlencoded'
-//     }
-// }).then(function (resp) {
+// console.log("hello world")
+// const root = document.getElementById("root");
 
-//     // Return the response as JSON
-//     return resp.json();
 
-// }).then(function (data) {
+var options = {
+  responsive: true,
+  title: {
+    display: true,
+    position: "top",
+    text: "Doughnut Chart",
+    fontSize: 18,
+    fontColor: "#111"
+  },
+  legend: {
+    display: true,
+    position: "bottom",
+    labels: {
+      fontColor: "#333",
+      fontSize: 16
+    }
+  }
+};
+/// { org_id : 2, orgia_id_1: 1 }
 
-//     // Log the API data
-//     // console.log('token', data);
+let url = "http://localhost:8080/jsonDATA";
+async function getPets(city) {
+  var pets = {};
 
-//     // Store token data
-//     token = data.access_token;
-//     token_type = data.token_type;
-//     expires = new Date().getTime() + (data.expires_in * 1000);
+  const response = await fetch(url);
+  const data = await response.json();
+        // .then(response => response.json())
+        // .then(data => console.log(data))
+        // .then(function(data){
+  // console.log(data);
+  data.forEach((item) => {
+        if(item.contact.address.city == city){
 
-//     fetch('https://api.petfinder.com/v2/animals', {
-//         headers: {
-//             'Authorization': token_type + ' ' + token,
-//             'Content-Type': 'application/x-www-form-urlencoded'
-//         }
-    
+        if(pets[item.organization_id]) {
+          pets[item.organization_id] += 1;
+        } else {
+          pets[item.organization_id] = 1;
+        } 
+          // console.log(pets)   
+      }
+    }); 
+  
+    console.log(pets);
 
-//         }).then(function (resp) {
+  var colors = [];
+  var borderColors = [];
+  // var result  = await getPets();
+  const result = pets;
+  Object.keys(result).forEach((_) => {
+    colors.push('#'+Math.floor(Math.random()*16777215).toString(16));
+    borderColors.push('#'+Math.floor(Math.random()*16777215).toString(16));
+  });
+  
+var doughnutData = {
+  labels :  Object.keys(result),
+  datasets: [{
+      data: Object.values(result),
+      backgroundColor:colors,
+      borderColor: colors
+  }]
+};
 
-//             // Return the API response as JSON
-//             return resp.json();
+// Get the context of the canvas element we want to select
+var chart = document.getElementById("myChart").getContext("2d");
+var myChart = new Chart(chart, {
+  type: 'pie',
+  data: doughnutData,
+  options: options,
 
-//         }).then(function (data) {
-//             DATA = data.animals;
-//             // Log the pet data
-//             // your content will be here
-//             data.animals.forEach(val => {
-//                 console.log(val);
-//                 // if (val.name === 'sdf') {
-//                 // addToDOM('div', val);
-//                 // }
-//                 // 
-//             });
+});
+                    
+                    // if( item.organization_id === "NJ333")
+                    //     {
+                    // console.log(
+                    //         item.species
+                    //         // item.contact.address.postcode
+                        
+                    //     );
+                    // }
 
-//             // send back html dom to the browser
-//             // dom will be the place to store html
-//             // response.send(dom.serialize());
-//         }).catch(function (err) {
-//             // Log any errors
-//             console.log('ERROR!! Something not working!', err);
-//         });
-// });
+                    // pets = `${item.contact.address.postcode}`
 
-// fetch('http://localhost:8080/')
-//   .then(function(response) {
-//     return response.json();
-//   })
-//   .then(function(myJson) {
-//     console.log(JSON.stringify(myJson));
-//   });
+                    // pets = data[0].contact.address.postcode;
+                    // console.log(pets);
+            
 
-console.log("hello world")
-const getPets = () => {
-    fetch("http://localhost:8080/jsonDATA")
-        .then(response => response.json()).then(data => console.log(data));
+            // data.forEach((item) => {
+            //     if(count[`${item.age}`]) {
+            //       count[`${item.age}`] +=1
+            //      }
+            //      else {
+            //         count[`${item.age}`] = 1
+            //      }
+            //   })
+          
+            //    Object.keys(count).forEach((key) => {
+            //     const number = count[key]
+            //     if (number >= 2 || key === 'None') {
+            //       result[key] = count[key]
+            //     } 
+            //   });
+          
+            //   return result;
+           
+          
+
+               
+
+        // .then(data => {
+           
+        //     const petList = createPetList() 
+        // })
 }
 
-getPets();
+// search bar 
+getPets('Portland');
 
+// module.exports = listings;
 
-// async function getPets() {
+// let url = 'https://thronesapi.com/api/v2/Characters';
+
+// async function getHouses() {
 //   var result = {};
 //   const count = {};
 //   const response = await fetch(url);
@@ -105,25 +155,8 @@ getPets();
 // }
 
 
-// //legends
-// var options = {
-//   responsive: true,
-//   title: {
-//     display: true,
-//     position: "top",
-//     text: "Doughnut Chart",
-//     fontSize: 18,
-//     fontColor: "#111"
-//   },
-//   legend: {
-//     display: true,
-//     position: "bottom",
-//     labels: {
-//       fontColor: "#333",
-//       fontSize: 16
-//     }
-//   }
-// };
+// legends
+
 
 
 
@@ -131,7 +164,7 @@ getPets();
 //   var colors = [];
 //   var borderColors = [];
 //   var result  = await getPets();
-//   Object.keys(result).forEach((_) => {
+//   result.forEach((_) => {
 //     colors.push('#'+Math.floor(Math.random()*16777215).toString(16));
 //     borderColors.push('#'+Math.floor(Math.random()*16777215).toString(16));
 //   });
