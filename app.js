@@ -30,7 +30,6 @@ const { document } = dom.window;
 let result = document.getElementById('results');
 
 // Variables parameters: organization and type
-let org = 'RI77';
 let status = 'adoptable';
 let city = 'Portland, OR';
 
@@ -95,6 +94,11 @@ app.get('/', (request, response) => {
 
 app.get('/jsonDATA', (request, response) => {
     response.send(DATA);
+});
+
+
+app.get('/about', (request, response) => {
+   response.send("Hello");
 });
 
 let addToDOM = ( element, item) => {

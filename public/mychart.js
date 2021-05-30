@@ -10,24 +10,6 @@ function submitContent()
   // return searchString;
 
 
-var options = {
-  responsive: true,
-  title: {
-    display: true,
-    position: "bottom",
-    text: "Pet Rescue Organizations in City of " + city,
-    fontSize: 18,
-    fontColor: "#111"
-  },
-  legend: {
-    display: true,
-    position: "top",
-    labels: {
-      fontColor: "#333",
-      fontSize: 16
-    }
-  }
-};
 /// { org_id : 2, orgia_id_1: 1 }
 
 let url = "http://localhost:8080/jsonDATA";
@@ -55,17 +37,40 @@ async function getPets() {
     
     }); 
   
-    console.log(pets);
+
+    
+var options = {
+  responsive: true,
+  title: {
+    display: true,
+    position: "bottom",
+    text: "Pet Rescue Organizations in City of " + city,
+    fontSize: 18,
+    fontColor: "#111"
+  },
+  legend: {
+    display: true,
+    position: "top",
+    
+    labels: {
+      fontColor: "#333",
+      fontSize: 16,
+      padding: 10
+      
+    }
+  }
+};
+  console.log(pets);
 
   var colors = [];
   var borderColors = [];
  
  
-  if(pets == {} ){
-    console.log("Sorry!");
-    var chart = document.getElementById("myChart").getContext("2d");
-  }
-  else{
+  // if(pets == {} ){
+  //   console.log("Sorry!");
+  //   var chart = document.getElementById("myChart").getContext("2d");
+  // }
+  // else{
   const result = pets;
   Object.keys(result).forEach((_) => {
     colors.push('#'+Math.floor(Math.random()*16777215).toString(16));
@@ -78,21 +83,25 @@ var pieData = {
   datasets: [{
       data: Object.values(result),
       backgroundColor:colors,
-      borderColor: colors
+      // borderColor: colors,
+      offset: 2,
+      hoverOffset: 5,
+      hoverBorderWidth:3
   }]
 };
 
 // Get the context of the canvas element we want to select
+
 var chart = document.getElementById("myChart").getContext("2d");
 var myChart = new Chart(chart, {
-  type: 'pie',
+  type: 'doughnut',
   data: pieData,
-  options: options,
+  options: options
 
 });
 
 
-}    //else comment             
+// }    //else comment             
  
 
 
@@ -100,6 +109,7 @@ var myChart = new Chart(chart, {
 
 
 }
+
 
 // search bar 
 getPets(city);
