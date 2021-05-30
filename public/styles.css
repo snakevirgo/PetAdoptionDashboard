@@ -31,3 +31,13 @@ img{
     width: 90%;
 
 }
+
+
+/* chart.js styling */
+/* pie chart */
+.chart-container{
+    position: relative;
+    width: 55%;
+    /* centers chart */
+    margin: auto; 
+}
