@@ -33,21 +33,39 @@ img{
 
 }
 /* nav-bar */
+.navbar{
+    background-image: linear-gradient(to right top, #e8c531, #ffb565, #ffaf9e, #ffb8cf, #ffc8ee); */
+}
 
+/* greeting  */
+.greetingMsg{
+    margin-top: 3rem;
+    text-align: center;  
+}
+
+.msg{
+    margin-top: 1rem;
+    text-align: center;
+}
 /* search bar */
+.form-inline{
+    display: flex;
+    flex-flow: row;
+}
+
 #searchBar{
     width: calc(100% + 270px);
     font-weight: 500;
     
 }
 
-label[for=searchbar] + div {
+label[for=searchBar] + div {
    position: relative;
    border-radius: 5px;
    padding-right: 20px;
 }
 
-label[for=searchbar] + div::after {
+label[for=searchBar] + div::after {
    content: "";
    position: absolute;
    right: 0;
@@ -61,6 +79,7 @@ label[for=searchbar] + div::after {
    background-position: center center;
    background-size: cover;
 }
+
 
 /* chart.js styling */
 /* pie chart */

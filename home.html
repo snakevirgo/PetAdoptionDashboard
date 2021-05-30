@@ -8,14 +8,15 @@
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/31a00af4ac.js" crossorigin="anonymous"></script>
  
 
 </head>
 
 <body class="bg-info">
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Pet Adoption in Oregon</a>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="#">PAO</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,22 +38,38 @@
   <!-- <div id="root"></div> -->
   <main> 
     <section class="container wrapper mx-auto">
-      <h1 class="mt-2 mb-4 mx-auto text-center ">pets</h1>
-      <!-- search bar -->
-      <form class="form-inline">
-        <label for="searchbar"></label>
-          <input class="form-control mr-sm-2" type="text" name="searchBar" id="searchBar" aria-label="Search"
-            placeholder="Enter a city from Oregon. (ie: Portland)"/>
-              <label for="submit"></label>
-              <button type="button" id="submit" name="submit" class="btn btn-outline-success my-2 my-sm-0 submiting" onClick="submitContent()" >Search</button>
-      </form>      
-              
+      <div class="row">
+        <div class="col-12">
+          <div class="greeting">
+            <h2 class="greetingMsg">Welcome to PAO<span><i class="fas fa-paw"></i></span></h2>
+            <h4 class="msg">Come and find your ideal pal at PAO(Pet Adoption in Oregon)!</h4>
 
-      <!-- chart -->
-      <div class="chart-container">
-        <canvas id="myChart" width="400" height="400" aria-label="pie chart" role="img"></canvas>
+          </div>
+        </div>
       </div>
-    <section id="results"></section>
+      <!-- end of greeting -->
+      <div class="row">
+        <div class="col-12">
+          <h4 class="mt-4 mb-4 mx-auto text-center ">Find a pet within your city!</h4>
+          <!-- search bar -->
+          <form class="form-inline">
+            <label for="searchBar"></label>
+              <input class="form-control mr-sm-2" type="text" name="searchBar" id="searchBar" aria-label="Search"
+                placeholder="Enter a city from Oregon. (ie: Portland)"/>
+                  <label for="submit"></label>
+                  <button type="button" id="submit" name="submit" class="btn btn-outline-success my-2 my-sm-0 submiting" onClick="submitContent()" >Search</button>
+          </form>      
+          <!-- chart -->
+          <div class="chart-container col-12">
+            <canvas id="myChart" width="400" height="400" aria-label="pie chart" role="img"></canvas>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <section id="results"></section>
 
     </section>
   </main>
