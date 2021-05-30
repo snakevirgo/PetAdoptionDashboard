@@ -1,11 +1,39 @@
-// chart
-// function loaded(){
-//define a function 
-// declare const pet[]
-//fontend - make an object, store all info i need in a dictionary, map from organization to pets, display
-// const pets=[]
-// console.log("hello world")
-// const root = document.getElementById("root");
+const searchBar = document.getElementById('searchBar');
+let dataY = [];
+
+function submitContent()
+{
+   const city = document.getElementById('searchBar').value;
+  // console.log(searchString);
+  // return searchString;
+
+// searchBar.addEventListener('keyup', (e) => {
+//   // console.log(e.target.value);
+//   const inputString = e.target.value;
+//   const filteredOrgs = Object.keys(pets).filter( (org) => {
+//     return(
+//        org.contact.address.city.includes(inputString)
+//     );
+//   });
+//   console.log(filteredOrgs);
+// });
+
+// const city = searchBar.addEventListener('keyup', (e) => {
+//     // console.log(e.target.value);
+//     const searchString = e.target.value;
+//     // const filteredPet = dataY.filter( eachPet => {
+//     //   return eachPet.contact.address.city.includes(searchString);
+//     // });
+//     // console.log(filteredPet);
+//     return searchString;
+// });
+
+// const city = searchBar.addEventListener('keyup', (e) => {
+//   console.log(e.target.value);
+  
+//   // const searchString = e.target.value;
+//   // return searchString;
+// });
 
 
 var options = {
@@ -29,16 +57,16 @@ var options = {
 /// { org_id : 2, orgia_id_1: 1 }
 
 let url = "http://localhost:8080/jsonDATA";
-async function getPets(city) {
+async function getPets() {
   var pets = {};
 
   const response = await fetch(url);
-  const data = await response.json();
+  const dataY = await response.json();
         // .then(response => response.json())
         // .then(data => console.log(data))
         // .then(function(data){
-  // console.log(data);
-  data.forEach((item) => {
+  console.log(dataY);
+  dataY.forEach((item) => {
         if(item.contact.address.city == city){
 
         if(pets[item.organization_id]) {
@@ -46,7 +74,7 @@ async function getPets(city) {
         } else {
           pets[item.organization_id] = 1;
         } 
-          // console.log(pets)   
+         
       }
     }); 
   
@@ -123,7 +151,8 @@ var myChart = new Chart(chart, {
 }
 
 // search bar 
-getPets('Portland');
+getPets(city);
+}
 
 // module.exports = listings;
 

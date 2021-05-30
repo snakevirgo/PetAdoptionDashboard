@@ -20,6 +20,17 @@
   <main> 
     <section class="container wrapper mx-auto">
       <h1 class="mt-2 mb-4 mx-auto text-center ">pets</h1>
+    <div id="search">
+      <label for="searchbar"></label>
+        <input type="text" name="searchBar" id="searchBar" 
+          placeholder="Enter a city from Oregon. (ie: Portland)"/>
+          <!-- <div class="btns"> -->
+            <label for="submit"></label>
+            <button type="button" id="submit" name="submit" class="submiting" onClick="submitContent()" >Search</button>
+            <!-- <input type="reset" id="reset" value="Reset"> -->
+          </div>
+      </form>
+    </div>
       <h1 class="myCanvas"></h1> 
       <canvas id="myChart" width="400" height="400" aria-label="donut chart" role="img"></canvas>
       <section id="results"></section>
