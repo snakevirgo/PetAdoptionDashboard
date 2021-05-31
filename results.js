@@ -14,7 +14,7 @@ const { JSDOM } = jsdom;// functions that gets data from petfinder api
 
 var page_template = fs.readFileSync('bargraph.html','utf-8');
 
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 
 
@@ -27,12 +27,12 @@ const dom = new JSDOM( page_template,
 const { document } = dom.window;
 
 let catBreedResult = document.getElementById('catBreedResults');
-let dogBreedResult = document.getElementById('dogBreedResults');
+// let dogBreedResult = document.getElementById('dogBreedResults');
 
 // Variables parameters: organization and type
 let org = 'RI77';
 let status = 'adoptable';
-let city = 'Portland, OR';
+let city = 'Seattle, WA';
 
 var DATA = [];
 app.get('/', (request, response) => {
@@ -141,7 +141,7 @@ app.get('/results', (request, response) => {
 
 app.listen(8080, () => {
     console.log('Example app listening at http://localhost:8080');
-  });
+});
 
 
 

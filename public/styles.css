@@ -89,3 +89,12 @@ label[for=searchBar] + div::after {
     /* centers chart */
     margin: auto; 
 }
+
+
+/* bar graphs */
+.chart-container{
+    position: relative;
+    width: 55%;
+    /* centers chart */
+    margin: auto; 
+}

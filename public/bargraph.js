@@ -1,38 +1,29 @@
-// console.log("Testing data display on console")
-// const displayPets = () => {
-//     fetch("http://localhost:8080/jsonDATA")
-//         .then(response => response.json()).then(data => console.log(data));
-// }
+console.log("Hello");
 
-// displayPets();
-
-
-
-//Bargraph.js uses JSONP to get data
-//Button is added in "bargraph html" with event listener for zip code searches
-//Bargraph.html was previously 'results.html' and can be changed back after testing.
-
-
-// const fetch = require('node-fetch');
-// const express = require('express');
-// const jsdom = require("jsdom");
-// const fs = require('fs');
-// require('dotenv').config();
-
-// const { JSDOM } = jsdom;// functions that gets data from petfinder api
-
-// var page_template = fs.readFileSync('bargraph.html','utf-8');
-// const dom = new JSDOM( page_template, 
-//                         {
-//                             contentType: "text/html",
-//                             pretendToBeVisual: true,
-//                         });
+var options = {
+	responsive: true,
+	title: {
+	  display: true,
+	  position: "top",
+	  text: "Doughnut Chart",
+	  fontSize: 18,
+	  fontColor: "#111"
+	},
+	legend: {
+	  display: true,
+	  position: "bottom",
+	  labels: {
+		fontColor: "#333",
+		fontSize: 16
+	  }
+	}
+};
 
 let url = "http://localhost:8080/results";
 
-async function getPets(city) {
+async function getCatsDogs(city) {
 	var catDataByLocation = {};
-	var dogDataByLocation = {};
+	// var dogDataByLocation = {};
   
 	const response = await fetch(url);
 	const petData = await response.json();
@@ -44,144 +35,107 @@ async function getPets(city) {
 		if(item.contact.address.city == city){
 			
 			//Store cat breeds at this location into catDataByLocation
-			if(item.type == 'Cat') {
-				if(catDataByLocation[item.type.primary])
-					catDataByLocation[item.type.primary] += 1;
+			// if(item.breeds == 'Cat') {
+				if(catDataByLocation[item.breeds.primary])
+					catDataByLocation[item.breeds.primary] += 1;
 				else
-					catDataByLocation[item.type.primary] = 1;
+					catDataByLocation[item.breeds.primary] = 1;
 				
-				if(catDataByLocation[item.type.secondary])
-					catDataByLocation[item.type.secondary] += 1;
-				else
-					catDataByLocation[item.type.secondary] = 1;
-			}
+				// if(catDataByLocation[item.breeds.secondary])
+				// 	catDataByLocation[item.breeds.secondary] += 1;
+				// else
+				// 	catDataByLocation[item.breeds.secondary] = 1;
+			// }
 
 			//Store dog breeds at this location into dogDataByLocation
-			if(item.type == 'Dog') {
-				if(dogDataByLocation[item.type.primary])
-					dogDataByLocation[item.type.primary] += 1;
-				else
-					dogDataByLocation[item.type.primary] = 1;
+			// if(item.breeds == 'Dog') {
+			// 	if(dogDataByLocation[item.breeds.primary])
+			// 		dogDataByLocation[item.breeds.primary] += 1;
+			// 	else
+			// 		dogDataByLocation[item.breeds.primary] = 1;
 				
-				if(dogDataByLocation[item.type.secondary])
-					dogDataByLocation[item.type.secondary] += 1;
-				else
-					dogDataByLocation[item.type.secondary] = 1;
-			}
+			// 	if(dogDataByLocation[item.breeds.secondary])
+			// 		dogDataByLocation[item.breeds.secondary] += 1;
+			// 	else
+			// 		dogDataByLocation[item.breeds.secondary] = 1;
+			// }
 		}
 	}); 
-	// console.log("This is the cat data");
-	// console.log(catDataByLocation);
+	console.log("This is the cat data");
+	console.log(catDataByLocation);
 	// console.log("This is the dog data");
 	// console.log(dogDataByLocation);
 
+	var barGraphColors = [];
+	var barGraphBorderColors = [];
+
 	//Store cat breed data and dog breed data
 	const catBreedResults = catDataByLocation;
-	const dogBreedResults = dogDataByLocation;
+	// const dogBreedResults = dogDataByLocation;
+	Object.keys(catBreedResults).forEach((_) => {
+		barGraphColors.push('#'+Math.floor(Math.random()*16777215).toString(16));
+		barGraphBorderColors.push('#'+Math.floor(Math.random()*16777215).toString(16));
+	});
 
 
 var catBreedBarData = {
 	labels :  Object.keys(catBreedResults),
 	datasets: [{
 		data: Object.values(catBreedResults),
-	}]
-};
-
-var dogBreedBarData = {
-	labels :  Object.keys(dogBreedResults),
-	datasets: [{
-		data: Object.values(dogBreedResults),
-		backgroundColor:colors,
-		borderColor: [
-			'rgb(255, 99, 132)',
-			'rgb(255, 159, 64)',
-			'rgb(255, 205, 86)',
-			'rgb(75, 192, 192)',
-			'rgb(54, 162, 235)',
-			'rgb(153, 102, 255)',
-			'rgb(201, 203, 207)'
-	  	],
-	}]
-};
-
-
-// const catLabels = Object.keys(catDataByLocation);
-const catData = {
-	labels: catLabels,
-	datasets: [{
-    	label: 'Cats by Breed Bar Graph',
-    	data: Object.values(catDataByLocation),
-
-    	borderColor: [
-      		'rgb(255, 99, 132)',
-      		'rgb(255, 159, 64)',
-      		'rgb(255, 205, 86)',
-      		'rgb(75, 192, 192)',
-      		'rgb(54, 162, 235)',
-      		'rgb(153, 102, 255)',
-      		'rgb(201, 203, 207)'
-    	],
+    	backgroundColor: barGraphColors,
+		borderColor: barGraphBorderColors,
     	borderWidth: 1
-  	}]
+	}]
 };
 
-var ctx1 = document.getElementById('catBreedChart').getContext('2d');
+var ctx1 = document.getElementById('myChart').getContext('2d');
 var catBreedChart = new Chart(ctx1, {
     type: 'bar',
-	data: catData,
-	options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
+	data: catBreedBarData,
+	options: options
 });
 
-const dogLabels = Object.keys(dogDataByLocation);
-const dogData = {
-	labels: dogLabels,
-	datasets: [{
-    	label: 'Dogs by Breed Bar Graph',
-    	data: Object.values(dogDataByLocation),
-    	backgroundColor: [
-      		'rgba(255, 99, 132, 0.2)',
-			'rgba(255, 205, 86, 0.2)',
-			'rgba(255, 159, 64, 0.2)',
-      		'rgba(75, 192, 192, 0.2)',
-      		'rgba(54, 162, 235, 0.2)',
-      		'rgba(153, 102, 255, 0.2)',
-      		'rgba(201, 203, 207, 0.2)'
-    	],
-    	borderColor: [
-      		'rgb(255, 99, 132)',
-      		'rgb(255, 159, 64)',
-      		'rgb(255, 205, 86)',
-      		'rgb(75, 192, 192)',
-      		'rgb(54, 162, 235)',
-      		'rgb(153, 102, 255)',
-      		'rgb(201, 203, 207)'
-    	],
-    	borderWidth: 1
-  	}]
-};
+// var dogBreedBarData = {
+// 	labels :  Object.keys(dogBreedResults),
+// 	datasets: [{
+// 		data: Object.values(dogBreedResults),
+//     	backgroundColor: [
+// 			'rgba(255, 99, 132, 0.2)',
+// 		  'rgba(255, 205, 86, 0.2)',
+// 		  'rgba(255, 159, 64, 0.2)',
+// 			'rgba(75, 192, 192, 0.2)',
+// 			'rgba(54, 162, 235, 0.2)',
+// 			'rgba(153, 102, 255, 0.2)',
+// 			'rgba(201, 203, 207, 0.2)'
+// 	  	],
+// 		borderColor: [
+// 			'rgb(255, 99, 132)',
+// 			'rgb(255, 159, 64)',
+// 			'rgb(255, 205, 86)',
+// 			'rgb(75, 192, 192)',
+// 			'rgb(54, 162, 235)',
+// 			'rgb(153, 102, 255)',
+// 			'rgb(201, 203, 207)'
+// 	  	],
+// 	}]
+// };
 
-var ctx2 = document.getElementById('dogBreedChart').getContext('2d');
-var dogBreedChart = new Chart(ctx2, {
-    type: 'bar',
-	data: dogData,
-	options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
+// var ctx2 = document.getElementById('dogBreedChart').getContext('2d');
+// var dogBreedChart = new Chart(ctx2, {
+//     type: 'bar',
+// 	data: dogBreedBarData,
+// 	options: {
+//         scales: {
+//             y: {
+//                 beginAtZero: true
+//             }
+//         }
+//     }
+// });
 
 }
 
-getPets('Portland');
+getCatsDogs('Seattle');
 
 
 

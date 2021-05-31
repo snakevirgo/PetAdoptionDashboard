@@ -1,35 +1,31 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minjin's TESTING Results Page</title>
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"/>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Adoption HomePage</title>
+    <link rel="stylesheet" type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+   
+  
+  </head>
 
-
-</head>
-
-<body>
-  <main>
-    <section class="container wrapper mx-auto">
-      <h1 class="mt-2 mb-4 mx-auto text-center ">PET BAR GRAPHS</h1>
+  <body class="bg-info">
+    <main>
+      <section class="container wrapper mx-auto">
+        <h1 class="mt-2 mb-4 mx-auto text-center ">PET BAR GRAPHS</h1>
+        <h1 class="myCanvas"></h1>
+        <canvas id="myChart" width="400" height="400" aria-label="donut chart" role="img"></canvas>
+        <section id="catBreedResults"></section>
       
-      <h1 class="catBreedBarGraphs"></h1>
-      <canvas id="catBreedChart" aria-label="bar graph" width="400" height="400" role="img"></canvas>
-      <section id="catBreedresults"></section>
-      
-      <h1 class="dogBreedBarGraphs"></h1>
-      <canvas id="dogBreedChart" aria-label="bar graph" width="400" height="400" role="img"></canvas>
-      <section id="dogBreedresults"></section>
+        <h1 class="dogBreedBarGraphs"></h1>
+        <canvas id="dogBreedChart" aria-label="bar graph" width="400" height="400" role="img"></canvas>
+        <section id="dogBreedresults"></section>
 
-      
-
-    </section>
-  </main>
+      </section>
+    </main>
   
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -38,6 +34,46 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script type="text/javascript" src="bargraph.js"></script>
 
-</body>
+  </body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pet Adoption HomePage</title>
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+ 
+
+</head>
+
+<body class="bg-info">
+  <!-- <header>
+  
+  </header> -->
+  <!-- <div id="root"></div> -->
+  <main> 
+    <section class="container wrapper mx-auto">
+      <h1 class="mt-2 mb-4 mx-auto text-center ">mypets</h1>
+      <h1 class="myCanvas"></h1> 
+      <canvas id="myChart" width="400" height="400" aria-label="donut chart" role="img"></canvas>
+      <section id="results"></section>
+
+    </section>
+  </main>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script type="text/javascript" src="bargraph.js"></script>
+
+  </body>
 
 </html>
