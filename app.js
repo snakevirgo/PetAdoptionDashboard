@@ -22,13 +22,14 @@ router.get('/',function(req,res){
     //__dirname : It will resolve to your project folder.
   });
   
+router.get('/search',function(req,res){
+    res.sendFile(path.join(__dirname+'/search.html'));
+});
+
 router.get('/about',function(req,res){
     res.sendFile(path.join(__dirname+'/about.html'));
 });
   
-router.get('/results',function(req,res){
-    res.sendFile(path.join(__dirname+'/results.html'));
-});
 
 // let options = {
 //     dotfiles: "ignore", //allow, deny, ignore
