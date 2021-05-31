@@ -31,23 +31,8 @@ router.get('/about',function(req,res){
 });
   
 
-// let options = {
-//     dotfiles: "ignore", //allow, deny, ignore
-//     etag: true,
-//     extensions: ["htm", "html"],
-//     index: false, //to disable directory indexing
-//     maxAge: "7d",
-//     redirect: false,
-//     setHeaders: function(res, path, stat) {
-//       //add this header to all static responses
-//       res.set("x-timestamp", Date.now());
-//     }
-//   };
-
 app.use(express.static('public'));
-// app.use(express.static('public', options));
-// app.use('/css', express.static(__dirname + 'public/css'))
-// app.use('/css', express.static(__dirname + 'public/js'))
+
 
 const dom = new JSDOM( page_template, 
                         {
