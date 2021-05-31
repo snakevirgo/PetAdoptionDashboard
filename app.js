@@ -1,6 +1,9 @@
 //declare fetch
 const fetch = require('node-fetch');
 const express = require('express');
+const app = express();
+const path = require('path');
+const router = express.Router();
 const jsdom = require("jsdom");
 const fs = require('fs');
 // const Chart = require('chart.js');
@@ -8,15 +11,28 @@ const { isContext } = require('vm');
 require('dotenv').config();
 const secret_key = process.env.SECRET_KEY;
 const key = process.env.KEY;
-const app = express();
+
 
 const { JSDOM } = jsdom;
 
 var page_template = fs.readFileSync('home.html','utf-8');
 
-app.use(express.static('public'))
-// app.use('/css', express.static(__dirname + 'public/css'))
-// app.use('/css', express.static(__dirname + 'public/js'))
+router.get('/',function(req,res){
+    res.sendFile(path.join(__dirname+'/home.html'));
+    //__dirname : It will resolve to your project folder.
+  });
+  
+router.get('/search',function(req,res){
+    res.sendFile(path.join(__dirname+'/search.html'));
+});
+
+router.get('/about',function(req,res){
+    res.sendFile(path.join(__dirname+'/about.html'));
+});
+  
+
+app.use(express.static('public'));
+
 
 const dom = new JSDOM( page_template, 
                         {
@@ -30,7 +46,6 @@ const { document } = dom.window;
 let result = document.getElementById('results');
 
 // Variables parameters: organization and type
-let org = 'RI77';
 let status = 'adoptable';
 let city = 'Portland, OR';
 
@@ -97,11 +112,20 @@ app.get('/jsonDATA', (request, response) => {
     response.send(DATA);
 });
 
+
+// app.get('/about', (request, response) => {
+//    response.send("Hello, huh?");
+// });
+
+// var publicDir = require('path').join(__dirname,'/public'); 
+// app.use(express.static(publicDir)); 
+
+
 let addToDOM = ( element, item) => {
     let div = document.createElement(element);
     let image = document.createElement('img');
-    let caption = document.createElement('textarea')// <textarea></
-    let title = document.createElement('label') // <label></label>
+    let caption = document.createElement('textarea');
+    let title = document.createElement('label');
    
     div.setAttribute('class', 'pet_intro');
     div.style.display = "inline-block"
@@ -115,8 +139,21 @@ let addToDOM = ( element, item) => {
         this.style.backgroundColor = 'transparent';
         this.style.color = 'black';
     }
-    // image.setAttribute('src', item.photos[0].medium);
-    // image.src = item.photos[0].medium
+    if(!`${item.photos}`){
+       
+        // image.setAttribute('src', images/no-image.jpg );
+        // image.src = "images/no-image.jpg";
+        // let noImg = `<img src="/images/noImage.jpg"/>`;
+        // let html = `<img>${noImg}</>`
+        // respond.send(html);
+       
+    }
+    else{
+        
+        image.setAttribute('src', item.photos[0].medium);
+        image.src = item.photos[0].medium;
+    }
+   
     image.setAttribute('alt', `image of ${item.name}`);
     // image.height = "300"
     image.setAttribute('height', "400");
@@ -138,6 +175,7 @@ let addToDOM = ( element, item) => {
     result.append(div);
 }
 
+app.use('/', router);
 app.listen(8080, () => {
     console.log('Example app listening at http://localhost:8080');
   });
