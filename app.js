@@ -1,6 +1,9 @@
 //declare fetch
 const fetch = require('node-fetch');
 const express = require('express');
+const app = express();
+const path = require('path');
+const router = express.Router();
 const jsdom = require("jsdom");
 const fs = require('fs');
 // const Chart = require('chart.js');
@@ -8,13 +11,40 @@ const { isContext } = require('vm');
 require('dotenv').config();
 const secret_key = process.env.SECRET_KEY;
 const key = process.env.KEY;
-const app = express();
+
 
 const { JSDOM } = jsdom;
 
 var page_template = fs.readFileSync('home.html','utf-8');
 
-app.use(express.static('public'))
+router.get('/',function(req,res){
+    res.sendFile(path.join(__dirname+'/home.html'));
+    //__dirname : It will resolve to your project folder.
+  });
+  
+router.get('/about',function(req,res){
+    res.sendFile(path.join(__dirname+'/about.html'));
+});
+  
+router.get('/results',function(req,res){
+    res.sendFile(path.join(__dirname+'/results.html'));
+});
+
+// let options = {
+//     dotfiles: "ignore", //allow, deny, ignore
+//     etag: true,
+//     extensions: ["htm", "html"],
+//     index: false, //to disable directory indexing
+//     maxAge: "7d",
+//     redirect: false,
+//     setHeaders: function(res, path, stat) {
+//       //add this header to all static responses
+//       res.set("x-timestamp", Date.now());
+//     }
+//   };
+
+app.use(express.static('public'));
+// app.use(express.static('public', options));
 // app.use('/css', express.static(__dirname + 'public/css'))
 // app.use('/css', express.static(__dirname + 'public/js'))
 
@@ -97,15 +127,19 @@ app.get('/jsonDATA', (request, response) => {
 });
 
 
-app.get('/about', (request, response) => {
-   response.send("Hello");
-});
+// app.get('/about', (request, response) => {
+//    response.send("Hello, huh?");
+// });
+
+// var publicDir = require('path').join(__dirname,'/public'); 
+// app.use(express.static(publicDir)); 
+
 
 let addToDOM = ( element, item) => {
     let div = document.createElement(element);
     let image = document.createElement('img');
-    let caption = document.createElement('textarea')// <textarea></
-    let title = document.createElement('label') // <label></label>
+    let caption = document.createElement('textarea');
+    let title = document.createElement('label');
    
     div.setAttribute('class', 'pet_intro');
     div.style.display = "inline-block"
@@ -119,8 +153,21 @@ let addToDOM = ( element, item) => {
         this.style.backgroundColor = 'transparent';
         this.style.color = 'black';
     }
-    // image.setAttribute('src', item.photos[0].medium);
-    // image.src = item.photos[0].medium
+    if(!`${item.photos}`){
+       
+        // image.setAttribute('src', images/no-image.jpg );
+        // image.src = "images/no-image.jpg";
+        // let noImg = `<img src="/images/noImage.jpg"/>`;
+        // let html = `<img>${noImg}</>`
+        // respond.send(html);
+       
+    }
+    else{
+        
+        image.setAttribute('src', item.photos[0].medium);
+        image.src = item.photos[0].medium;
+    }
+   
     image.setAttribute('alt', `image of ${item.name}`);
     // image.height = "300"
     image.setAttribute('height', "400");
@@ -142,6 +189,7 @@ let addToDOM = ( element, item) => {
     result.append(div);
 }
 
+app.use('/', router);
 app.listen(8080, () => {
     console.log('Example app listening at http://localhost:8080');
   });

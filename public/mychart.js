@@ -21,7 +21,7 @@ async function getPets() {
         // .then(response => response.json())
         // .then(data => console.log(data))
         // .then(function(data){
-  console.log(dataY);
+  // console.log(dataY);
  
   dataY.forEach((item) => {
         if(item.contact.address.city === city){
@@ -31,7 +31,7 @@ async function getPets() {
         } else {
           pets[item.organization_id] = 1;
         } 
-         
+        
       }
       
     
@@ -43,14 +43,14 @@ var options = {
   responsive: true,
   title: {
     display: true,
-    position: "bottom",
+    position: "top",
     text: "Pet Rescue Organizations in City of " + city,
     fontSize: 18,
     fontColor: "#111"
   },
   legend: {
     display: true,
-    position: "top",
+    position: "right",
     
     labels: {
       fontColor: "#333",
@@ -84,8 +84,7 @@ var pieData = {
       data: Object.values(result),
       backgroundColor:colors,
       // borderColor: colors,
-      offset: 2,
-      hoverOffset: 5,
+      hoverOffset: 4,
       hoverBorderWidth:3
   }]
 };
