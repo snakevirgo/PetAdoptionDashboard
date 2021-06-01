@@ -141,8 +141,8 @@ let addToDOM = ( element, item) => {
 
     if(!`${item.photos}`){
        
-        image.setAttribute('src', images/no-image.jpg );
-        image.src = "images/no-image.jpg";
+        image.setAttribute('src', "images/noImage.jpg" );
+        // image.src = "images/no-image.jpg";
         // let noImg = `<img src="/images/noImage.jpg"/>`;
         // let html = `<img>${noImg}</>`
         // respond.send(html);
