@@ -19,7 +19,6 @@ var page_template = fs.readFileSync('home.html','utf-8');
 
 router.get('/',function(req,res){
     res.sendFile(path.join(__dirname+'/home.html'));
-    //__dirname : It will resolve to your project folder.
   });
   
 router.get('/search',function(req,res){
@@ -139,10 +138,11 @@ let addToDOM = ( element, item) => {
         this.style.backgroundColor = 'transparent';
         this.style.color = 'black';
     }
+
     if(!`${item.photos}`){
        
-        // image.setAttribute('src', images/no-image.jpg );
-        // image.src = "images/no-image.jpg";
+        image.setAttribute('src', images/no-image.jpg );
+        image.src = "images/no-image.jpg";
         // let noImg = `<img src="/images/noImage.jpg"/>`;
         // let html = `<img>${noImg}</>`
         // respond.send(html);

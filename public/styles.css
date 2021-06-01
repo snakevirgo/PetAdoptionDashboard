@@ -56,29 +56,40 @@ img{
 #searchBar{
     width: calc(100% + 270px);
     font-weight: 500;
+   
     
 }
+/* 
+.btn .btn-submit{
+    text-align: center;
+} */
 
-label[for=searchBar] + div {
-   position: relative;
-   border-radius: 5px;
-   padding-right: 20px;
-}
+/* 
+.btn-outline-success {
+    color: linear-gradient(to right top, #e8c531, #ffb565, #ffaf9e, #ffb8cf, #ffc8ee); 
+    /* border-color: #28a745;
+ } */
+ /* .btn{
+     border: 3px solid  #ffb8cf;
+     border-color: linear-gradient(to right top, #e8c531, #ffb565, #ffaf9e, #ffb8cf, #ffc8ee); 
+     background-color: white;
+    
 
-label[for=searchBar] + div::after {
-   content: "";
-   position: absolute;
-   right: 0;
-   top: 0;
-   height: 100%;
-   width: 20px;
-   border-radius: 0 3px 3px 0;
-   pointer-events: none;
-   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30'><polyline points='8,12,15,8,22,12' fill='none' style='stroke:white;stroke-width:2'/><polyline points='8,18,15,22,22,18' fill='none' style='stroke:white;stroke-width:2'/></svg>"),
-     linear-gradient(to bottom, #a0d8ff 0%, #105bfc 100%);
-   background-position: center center;
-   background-size: cover;
-}
+ } */
+ .btn-submit{
+    /* text-indent: 1cm; */
+    /* text-align: center; */
+    font-weight: 400;
+    padding-left: 20px;
+    padding-right:20px;
+    color: black;
+    background-image: linear-gradient(to right top, #e8c531, #ffb565, #ffaf9e, #ffb8cf, #ffc8ee); 
+    
+ }
+
+ /* .btn-submit:hover{
+     /* background-color: black; */
+     /* background-image: linear-gradient(to right top, #e8c531, #ffb565, #ffaf9e, #ffb8cf, #ffc8ee);  */
 
 
 /* chart.js styling */
