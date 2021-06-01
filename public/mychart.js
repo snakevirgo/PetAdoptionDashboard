@@ -227,8 +227,12 @@ var catBreedChart = new Chart(ctx1, {
       text: "Cats by Breeds in " + city,
       fontSize: 18,
       fontColor: "#111"
+    },
+    legend: {
+      display: false
     }
   }
+
 });
 
 //Dog breed bar graph
@@ -258,6 +262,9 @@ var catBreedChart = new Chart(ctx2, {
       text: "Dogs by Breeds in " + city,
       fontSize: 18,
       fontColor: "#111"
+    },
+    legend: {
+      display: false
     }
   }
 });
@@ -289,6 +296,9 @@ var petTypeChart = new Chart(ctx3, {
       text: "Pets by Type in " + city,
       fontSize: 18,
       fontColor: "#111"
+    },
+    legend: {
+      display: false
     }
   }
 });

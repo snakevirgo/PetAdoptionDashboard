@@ -95,10 +95,19 @@ label[for=searchBar] + div::after {
 .bargraphContainer {
     display: flex;
     position: relative;
+    
     width: 100%;
-    max-width: 500px;
+    max-width: 700px;
     /* centers chart */
     margin: 10px; 
+}
+
+#catBreedBar, #dogBreedBar, #petTypeBar {
+    display: flex;
+    position: relative;
+    padding: 10px;
+    bottom: 0;
+    left: 0;
 }
 
 /* #catBreedBar {
@@ -136,3 +145,8 @@ html, body {
 #footer, .copyright {
     text-align: center;
 }
+
+
+
+
+/* Accessibility and Mobile View */

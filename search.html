@@ -19,7 +19,7 @@
   
       <header>
         <nav class="navbar navbar-expand-lg navbar-light">
-          <a class="navbar-brand" href="#">PAO</a>
+          <a class="navbar-brand" href="/">PAO</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -67,8 +67,15 @@
               <!-- chart -->
               <div class="chart-container col-12 mt-4">
                 <canvas id="myChart" class="col-12" width="400" height="400" aria-label="pie chart" role="img"></canvas>
+                <div class="bargraphContainer">
+                  <canvas id="catBreedBar" class="col-12" width="400" height="400" aria-label="bargraph" role="img"></canvas>
+                  <canvas id="dogBreedBar" class="col-12" width="400" height="400" aria-label="bargraph" role="img"></canvas>
+                  <canvas id="petTypeBar" class="col-12" width="400" height="400" aria-label="bargraph" role="img"></canvas>
+                </div>
+              
               </div>
-              <div class="bargraphContainer">
+              
+              <!-- <div class="bargraphContainer">
                 <div class="chart-container col-12 mt-4">
                   <canvas id="catBreedBar" class="col-12" width="400" height="400" aria-label="bargraph" role="img"></canvas>
                 </div>
@@ -78,10 +85,11 @@
                 <div class="chart-container col-12 mt-4">
                   <canvas id="petTypeBar" class="col-12" width="400" height="400" aria-label="bargraph" role="img"></canvas>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </section>
+
       </main>
     </div>
   </div>
@@ -89,7 +97,7 @@
   <footer id="footer">
     <small id="copyright">&copy; Copyright 2021. Petfinder Dashboard</small>
   </footer>
-  
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
