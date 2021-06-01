@@ -174,18 +174,44 @@ const petTypeResults = petDataByType;
 
 // BAR GRAPHS FOR DIFFERENT TYPES //
 
+let backgroundColors = [
+  'rgba(54, 162, 235, 0.8)',
+  'rgba(255, 206, 86, 0.8)',
+  'rgba(255, 99, 132, 0.8)',
+  'rgba(75, 192, 192, 0.8)',
+  'rgba(153, 102, 255, 0.8)',
+  'rgba(255, 159, 64, 0.8)',
+  'rgba(199, 199, 199, 0.8)',
+  'rgba(83, 102, 255, 0.8)',
+  'rgba(40, 159, 64, 0.8)',
+  'rgba(210, 199, 199, 0.8)',
+];
+
+let backgroundColors2 = [
+  '#f9d5e5',
+  '#eeac99',
+  '#e06377',
+  '#c83349',
+  '#5b9aa0',
+  '#d6d4e0',
+  '#b8a9c9',
+  '#622569',
+];
+
+
+
 //Cat breed bar graph
 var catBreedBarData = {
 	labels :  Object.keys(catBreedResults),
 	datasets: [{
 		data: Object.values(catBreedResults),
-    backgroundColor: colors,
-		// borderColor: barGraphBorderColors,
+    borderColor: backgroundColors2,
+    backgroundColor: backgroundColors2,
     borderWidth: 1,
     barPercentage: 0.5,
-    barThickness: 6,
-    maxBarThickness: 8,
-    minBarLength: 2
+    barThickness: 3,
+    maxBarThickness: 4,
+    minBarLength: 2,
 	}]
 };
 
@@ -210,8 +236,8 @@ var dogBreedBarData = {
 	labels :  Object.keys(dogBreedResults),
 	datasets: [{
 		data: Object.values(dogBreedResults),
-    backgroundColor: colors,
-		// borderColor: barGraphBorderColors,
+    borderColor: backgroundColors2,
+    backgroundColor: backgroundColors2,
     borderWidth: 1,
     barPercentage: 0.5,
     barThickness: 6,
@@ -241,12 +267,12 @@ var petsByTypeData = {
 	labels :  Object.keys(petTypeResults),
 	datasets: [{
 		data: Object.values(petTypeResults),
-    backgroundColor: colors,
-		// borderColor: barGraphBorderColors,
+    borderColor: backgroundColors2,
+    backgroundColor: backgroundColors2,
     borderWidth: 1,
     barPercentage: 0.5,
     barThickness: 6,
-    maxBarThickness: 8,
+    maxBarThickness: 4,
     minBarLength: 2
 	}]
 };
