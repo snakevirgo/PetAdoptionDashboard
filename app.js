@@ -133,6 +133,7 @@ let addToDOM = ( element, item) => {
     let h3 = document.createElement('h3');
     let title = document.createElement('card-title');
     let caption = document.createElement('card-text');
+    // let petlink = document.createElement('nav-link');
    
    
     div.setAttribute('class', 'rowClass');
@@ -180,6 +181,11 @@ let addToDOM = ( element, item) => {
     title.style.fontSize ="small"
     title.style.textAlign = "center"
     title.innerHTML = item.name
+
+    // petlink.setAttribute("nav-link", item.src);
+    // petlink.addEventListener('click', () => {
+    //     window.open(item.src);
+    // });
     
 
     // card.append(image)  
@@ -194,13 +200,21 @@ let addToDOM = ( element, item) => {
     col.append(card);
     card.append(image);
     card.append(container);
+    // card.append(petlink);
     container.append(h3);
     container.append(caption);
 
 
     result.style.textAlign = "center"
     result.append(div);
+
 }
+
+// let buttonOpenPetLink = document.getElementById('card');
+// let petLink = document.getElementById('card').getElementsById('img').getElementById('src');
+// buttonOpenPetLink.addEventListener('click', () => {
+//     window.open(buttonOpenPetLink, 'blank');
+// });
 
 app.use('/', router);
 app.listen(8080, () => {
