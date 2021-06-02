@@ -42,7 +42,7 @@ const dom = new JSDOM( page_template,
 const { document } = dom.window;
 
 
-let result = document.getElementById('results');
+
 
 // Variables parameters: organization and type
 let status = 'adoptable';
@@ -93,6 +93,7 @@ app.get('/', (request, response) => {
                     // console.log(val);
                     // if (val.name === 'sdf') {
                     addToDOM('div', val);
+                
                     // }
                 });
 
@@ -118,34 +119,42 @@ app.get('/jsonDATA', (request, response) => {
 
 // var publicDir = require('path').join(__dirname,'/public'); 
 // app.use(express.static(publicDir)); 
-
+let result = document.getElementById('results');
 
 let addToDOM = ( element, item) => {
     let div = document.createElement(element);
+    let col = document.createElement('div');
+    let container = document.createElement('div');
+    let card = document.createElement('div');
+  
+    
+    let card_body = document.createElement('card-body')
     let image = document.createElement('img');
-    let caption = document.createElement('textarea');
-    let title = document.createElement('label');
+    let h3 = document.createElement('h3');
+    let title = document.createElement('card-title');
+    let caption = document.createElement('card-text');
    
-    div.setAttribute('class', 'pet_intro');
+   
+    div.setAttribute('class', 'rowClass');
     div.style.display = "inline-block"
     div.style.textAlign = "center"
     div.style.margin = "1%"
-    div.onmouseover = function() {
-        this.style.backgroundColor = 'black';
-        this.style.color = 'white';
-    };
-    div.onmouseout = function() {
-        this.style.backgroundColor = 'transparent';
-        this.style.color = 'black';
-    }
+    col.setAttribute('class', 'column');
+    card.setAttribute('class', 'card');
+   
+    // div.onmouseover = function() {
+    //     this.style.backgroundColor = 'black';
+    //     this.style.color = 'white';
+    // };
+    // div.onmouseout = function() {
+    //     this.style.backgroundColor = 'transparent';
+    //     this.style.color = 'black';
+    // }
+
 
     if(!`${item.photos}`){
        
         image.setAttribute('src', "images/noImage.jpg" );
-        // image.src = "images/no-image.jpg";
-        // let noImg = `<img src="/images/noImage.jpg"/>`;
-        // let html = `<img>${noImg}</>`
-        // respond.send(html);
        
     }
     else{
@@ -156,8 +165,15 @@ let addToDOM = ( element, item) => {
    
     image.setAttribute('alt', `image of ${item.name}`);
     // image.height = "300"
-    image.setAttribute('height', "400");
-    image.width = "240"
+    // image.setAttribute('height', "300");
+    // image.width = "240"
+    image.style.width = "100%";
+    image.setAttribute('class', 'card-img-top img-fluid');
+
+    container.setAttribute('class', 'container card-body' );
+    // h3.setAtrribute('class', 'name');
+    h3.innerHTML = item.name;
+
     caption.setAttribute('class', 'description');
     caption.innerHTML = item.description
     // console.log(item.description)
@@ -166,12 +182,23 @@ let addToDOM = ( element, item) => {
     title.innerHTML = item.name
     
 
-    div.append(image)  
-    div.append(document.createElement('br'));
-    div.append(title)
-    div.append(document.createElement('br'));
-    div.append(caption)    
-     
+    // card.append(image)  
+    // // card.append(document.createElement('br'));
+    // card_body.append(title)
+    // // card_body.append(document.createElement('br'));
+    // card_body.append(caption) 
+    // // card_body.append(document.createElement('br'));
+       
+    // card.append(card_body);
+    div.append(col);
+    col.append(card);
+    card.append(image);
+    card.append(container);
+    container.append(h3);
+    container.append(caption);
+
+
+    result.style.textAlign = "center"
     result.append(div);
 }
 
