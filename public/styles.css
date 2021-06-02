@@ -126,18 +126,30 @@ img{
     width: 90%;
 
 }
+
+/* Home page */
 /* nav-bar */
 .navbar{
-    background-image: linear-gradient(to right top, #e8c531, #ffb565, #ffaf9e, #ffb8cf, #ffc8ee); 
+    background-image: linear-gradient(to right top, #e8c531, #ffb565, #ffaf9e, #ffb8cf, #ffc8ee);
+     
 }
 
+.navbar-brand{
+    font-weight: 900;
+    font-style: italic;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.nav-item{
+    font-weight: bold;
+}
 /* greeting  */
 .greetingMsg{
     margin-top: 3rem;
     text-align: center;  
 }
 
-.msg{
+.the-msg{
     margin-top: 1rem;
     text-align: center;
 }
