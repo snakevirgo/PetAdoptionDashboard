@@ -30,17 +30,6 @@
     object-fit: cover;
 }
 
-/* .card:after{
-    content: "";
-    display: table;
-    clear: both;
-}
-@media screen and (max-width: 600px){
-.container .card-body{
-    width: 100%;
-   
-}
-} */
 
 @media screen and (max-width: 1200px) {
     .card-img-top {
@@ -74,25 +63,11 @@
         width: 100%;
         height: 30vw;
         object-fit: cover;
-        /* display: block; */
     }
 
     .rowClass{
-        height:60vw;
-        /* display:inline-block; */
-     
-  
+        height:60vw; 
     }
-   
-    /* .card{
-        margin-bottom: 5px;
-    } */
- /* .container .card-body{
-     display: block;
- }
- .card{
-    display: block;
- } */
 }
 
  @media screen and (max-width: 600px) {
@@ -100,29 +75,44 @@
         width: 100%;
         height: 45vw;
         object-fit: cover;
-        /* display: block; */
     }
 
     .rowClass{
         height:85vw;
-        /* margin-bottom: 3px; */
   
     }
-
-    .column{
-        margin-bottom: 3px;
-    }
- .container .card-body{
-     display: block;
- }
- /* .card{
-    display: block;
- } */
 }
 
+/* regular mobil screen */
+@media screen and (max-width: 420px) {
+    .card-img-top {
+        width: 100%;
+        height: 50vw;
+        object-fit: cover;
+    }
+
+    .rowClass{
+        height:100vw;
+  
+    }
+}
+
+/* very small screen mobile */
+@media screen and (max-width: 330px) {
+    .card-img-top {
+        width: 100%;
+        height: 85vw;
+        object-fit: cover;
+    }
+
+    .rowClass{
+        height:150vw;
+  
+    }
+}
 
 .card:hover{
-    background-color: black;
+    background-image: linear-gradient(to right top, #e8c531, #ffb565, #ffaf9e, #ffb8cf, #ffc8ee); 
 }
 
 /* .description{
