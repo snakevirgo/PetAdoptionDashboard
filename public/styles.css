@@ -142,6 +142,17 @@ img{
 .nav-item{
     font-weight: bold;
 }
+
+.nav-item::after {
+    font-weight: bold;
+    color: red;
+}
+
+/* .nav-link::after {
+    font-weight: normal;
+    color: red;
+} */
+
 /* greeting  */
 .greetingMsg{
     margin-top: 3rem;
@@ -166,7 +177,7 @@ img{
     
 }
 
- .btn-submit{
+ .btn-submit {
     font-weight: 400;
     padding-left: 20px;
     padding-right:20px;
@@ -191,6 +202,11 @@ img{
 
 
 /* bar graphs */
+
+.bar-container {
+    position: relative;
+}
+
 .bargraphContainer {
     display: flex;
     position: relative;
