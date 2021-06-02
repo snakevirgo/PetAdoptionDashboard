@@ -190,9 +190,68 @@ img{
 }
 
 
+/* bar graphs */
+.bargraphContainer {
+    display: flex;
+    position: relative;
+    
+    width: 100%;
+    max-width: 700px;
+    /* centers chart */
+    margin: 10px; 
+}
+
+#catBreedBar, #dogBreedBar, #petTypeBar {
+    display: flex;
+    position: relative;
+    padding: 10px;
+    bottom: 0;
+    left: 0;
+}
+
+/* #catBreedBar {
+    background-color: #d7efff;
+    border: 2 solid #ffaf9e;
+    border-color:#ffaf9e
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+} */
+
+
+/* footer */
+html, body {
+    height: 100%;
+}
+
+#mainContainer {
+    min-height: 100%;
+}
+
+#main {
+    overflow: auto;
+    padding-bottom: 100px;
+}
+
+#footer {
+    background-color: #ffb8cf;
+    position: relative;
+    height: 50px;
+    margin-top: -50px;
+    clear: both;
+}
+
+#footer, .copyright {
+    text-align: center;
+}
+
+
 /* about page */
 .msg {
     text-align: left;
     line-height: 30px;
     font-weight: 400;
 }
+
+
+/* Accessibility and Mobile View */
