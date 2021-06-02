@@ -141,6 +141,7 @@ img{
     margin-top: 1rem;
     text-align: center;
 }
+
 /* search bar */
 .form-inline{
     display: flex;
@@ -153,26 +154,8 @@ img{
    
     
 }
-/* 
-.btn .btn-submit{
-    text-align: center;
-} */
 
-/* 
-.btn-outline-success {
-    color: linear-gradient(to right top, #e8c531, #ffb565, #ffaf9e, #ffb8cf, #ffc8ee); 
-    /* border-color: #28a745;
- } */
- /* .btn{
-     border: 3px solid  #ffb8cf;
-     border-color: linear-gradient(to right top, #e8c531, #ffb565, #ffaf9e, #ffb8cf, #ffc8ee); 
-     background-color: white;
-    
-
- } */
  .btn-submit{
-    /* text-indent: 1cm; */
-    /* text-align: center; */
     font-weight: 400;
     padding-left: 20px;
     padding-right:20px;
@@ -193,4 +176,12 @@ img{
     width: 55%;
     /* centers chart */
     margin: auto; 
+}
+
+
+/* about page */
+.msg {
+    text-align: left;
+    line-height: 30px;
+    font-weight: 400;
 }
