@@ -306,30 +306,6 @@ var petTypeChart = new Chart(ctx3, {
 // }    //else comment             
  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Adding Bargraph cat and dog breed data to be displayed
 
 
