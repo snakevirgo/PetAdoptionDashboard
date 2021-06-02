@@ -143,10 +143,10 @@ img{
     font-weight: bold;
 }
 
-.nav-item::after {
+/* .nav-item::after {
     font-weight: bold;
     color: red;
-}
+} */
 
 /* .nav-link::after {
     font-weight: normal;
