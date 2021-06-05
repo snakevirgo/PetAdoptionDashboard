@@ -191,47 +191,73 @@ img{
 
 
 /* chart.js styling */
-/* pie chart */
+
+/* pie chart and bar graph*/
 .chart-container{
     position: relative;
-    width: 55%;
-    /* centers chart */
-    margin: auto; 
+    width: 80%;
+    margin: auto;
 }
-
-
-/* bar graphs */
 
 .bar-container {
     position: relative;
-}
-
-.bargraphContainer {
-    display: flex;
-    position: relative;
-    
     width: 100%;
-    max-width: 700px;
-    /* centers chart */
-    margin: 10px; 
+    height: 400px;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 100px;
 }
 
 #catBreedBar, #dogBreedBar, #petTypeBar {
-    display: flex;
-    position: relative;
-    padding: 10px;
-    bottom: 0;
-    left: 0;
+    min-width: 100%;
+    height: 350px;
 }
 
-/* #catBreedBar {
-    background-color: #d7efff;
-    border: 2 solid #ffaf9e;
-    border-color:#ffaf9e
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
+canvas {
+    width: 100% !important;
+    /* height: 100% !important; */
+}
+
+/* responsiveness for chart.js */
+/* @media screen and (max-width: 1200px) {
+    .chart-container{
+        position: relative;
+        width: 80%;
+        margin: auto;
+    }
+    
+    .bar-container {
+        overflow: auto;
+        position: relative;
+        justify-content: center;
+        display: flex;
+        width: 100%;
+        height: 400px;
+        margin: auto; 
+        padding-top: 70px;
+    }
 } */
+
+ /* @media screen and (max-width: 1029px) {
+
+ }
+*/
+ @media screen and (max-width: 770px) {
+    .chart-container{
+        position: relative;
+        width: 100%;
+        margin: auto;
+    }
+}
+
+/* @media screen and (max-width: 600px) {
+
+}
+
+@media screen and (max-width: 330px) {
+
+}  */
+
 
 
 /* footer */

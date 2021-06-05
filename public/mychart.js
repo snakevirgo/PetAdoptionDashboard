@@ -152,6 +152,7 @@ else{
     
 options = {
   responsive: true,
+  maintainAspectRatio: false,
   title: {
     display: true,
     position: "top",
@@ -260,6 +261,7 @@ if(count != 0)
     data: catBreedBarData,
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       title: {
         display: true,
         position: "top",
@@ -299,6 +301,7 @@ if(count != 0)
     data: dogBreedBarData,
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       title: {
         display: true,
         position: "top",
@@ -322,7 +325,7 @@ let petsByTypeData = {
     backgroundColor: colors,
     borderWidth: 1,
     barPercentage: 0.5,
-    barThickness: 6,
+    barThickness: 4,
     maxBarThickness: 4,
     minBarLength: 2
 	}]
@@ -337,6 +340,7 @@ if(count != 0)
     data: petsByTypeData,
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       title: {
         display: true,
         position: "top",
@@ -357,7 +361,18 @@ if(count != 0)
 
 }
 
-
+if ($(window).width() < 600) {
+  $(".doughnut-legend").hide();
+} else {
+  $(".doughnut-legend").show();
+}
+$(window).resize(function(e) {
+  if ($(this).width() < 600) {
+    $(".doughnut-legend").hide();
+  } else {
+    $(".doughnut-legend").show();
+  }
+});
 
 
 // search bar 
