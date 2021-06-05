@@ -6,7 +6,6 @@ const path = require('path');
 const router = express.Router();
 const jsdom = require("jsdom");
 const fs = require('fs');
-// const Chart = require('chart.js');
 const { isContext } = require('vm');
 require('dotenv').config();
 const secret_key = process.env.SECRET_KEY;
@@ -44,7 +43,7 @@ const { document } = dom.window;
 
 
 
-// Variables parameters: organization and type
+// Variables parameters: status and city
 let status = 'adoptable';
 let city = 'Portland, OR';
 
@@ -58,27 +57,24 @@ app.get('/', (request, response) => {
         }
     }).then(function (resp) {
 
-        // Return the response as JSON
+        // Return response as JSON
         return resp.json();
 
     }).then(function (data) {
-
-        // Log the API data
-        // console.log('token', data);
 
         // Store token data
         token = data.access_token;
         token_type = data.token_type;
         expires = new Date().getTime() + (data.expires_in * 1000);
 
-        // fetch('https://api.petfinder.com/v2/animals?organization=' + org + '&status=' + type, {
+        //fetch token
         fetch('https://api.petfinder.com/v2/animals?status=' + status + "&location=" + city +'&limit=100' , {
             headers: {
                 'Authorization': token_type + ' ' + token,
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
         
-
+            //get response
             }).then(function (resp) {
 
                 // Return the API response as JSON
@@ -108,19 +104,14 @@ app.get('/', (request, response) => {
 
 })
 
+//send data over to /jsonDATA for frontend
 app.get('/jsonDATA', (request, response) => {
     response.send(DATA);
 });
 
-
-// app.get('/about', (request, response) => {
-//    response.send("Hello, huh?");
-// });
-
-// var publicDir = require('path').join(__dirname,'/public'); 
-// app.use(express.static(publicDir)); 
 let result = document.getElementById('results');
 
+//function that appends pet cards on home page
 let addToDOM = ( element, item) => {
     let div = document.createElement(element);
     let col = document.createElement('div');
@@ -132,8 +123,7 @@ let addToDOM = ( element, item) => {
     let image = document.createElement('img');
     let h3 = document.createElement('h3');
     let title = document.createElement('card-title');
-    let caption = document.createElement('card-text');
-    // let petlink = document.createElement('nav-link');
+    let caption = document.createElement('div');
    
    
     div.setAttribute('class', 'rowClass');
@@ -142,65 +132,35 @@ let addToDOM = ( element, item) => {
     div.style.margin = "1%"
     col.setAttribute('class', 'column');
     card.setAttribute('class', 'card');
-   
-    // div.onmouseover = function() {
-    //     this.style.backgroundColor = 'black';
-    //     this.style.color = 'white';
-    // };
-    // div.onmouseout = function() {
-    //     this.style.backgroundColor = 'transparent';
-    //     this.style.color = 'black';
-    // }
-
 
     if(!`${item.photos}`){
        
         image.setAttribute('src', "images/noImage.jpg" );
        
     }
-    else{
+    else
+    {
         
         image.setAttribute('src', item.photos[0].medium);
         image.src = item.photos[0].medium;
     }
    
     image.setAttribute('alt', `image of ${item.name}`);
-    // image.height = "300"
-    // image.setAttribute('height', "300");
-    // image.width = "240"
     image.style.width = "100%";
     image.setAttribute('class', 'card-img-top img-fluid');
 
     container.setAttribute('class', 'container card-body' );
-    // h3.setAtrribute('class', 'name');
     h3.innerHTML = item.name;
-
     caption.setAttribute('class', 'description');
-    caption.innerHTML = item.description
-    // console.log(item.description)
+    caption.innerHTML = item.description;
     title.style.fontSize ="small"
     title.style.textAlign = "center"
     title.innerHTML = item.name
 
-    // petlink.setAttribute("nav-link", item.src);
-    // petlink.addEventListener('click', () => {
-    //     window.open(item.src);
-    // });
-    
-
-    // card.append(image)  
-    // // card.append(document.createElement('br'));
-    // card_body.append(title)
-    // // card_body.append(document.createElement('br'));
-    // card_body.append(caption) 
-    // // card_body.append(document.createElement('br'));
-       
-    // card.append(card_body);
     div.append(col);
     col.append(card);
     card.append(image);
     card.append(container);
-    // card.append(petlink);
     container.append(h3);
     container.append(caption);
 
@@ -210,16 +170,8 @@ let addToDOM = ( element, item) => {
 
 }
 
-// let buttonOpenPetLink = document.getElementById('card');
-// let petLink = document.getElementById('card').getElementsById('img').getElementById('src');
-// buttonOpenPetLink.addEventListener('click', () => {
-//     window.open(buttonOpenPetLink, 'blank');
-// });
-
 app.use('/', router);
-// app.listen(8080, () => {
-//     console.log('Example app listening at http://localhost:8080');
-//   });
+
 app.listen(process.env.PORT || 8080, () => {
     console.log('Example app listening at http://localhost:8080');
 });
