@@ -21,7 +21,7 @@
 }
 .rowClass{
     width:300px;
-    height:30vw;
+    /* height:30vw; */
 }
 
 .card-img-top {
@@ -38,9 +38,9 @@
         object-fit: cover;
     }
 
-    .rowClass{
+    /* .rowClass{
         height:46vw;
-    }
+    } */
  }
 
  @media screen and (max-width: 1029px) {
@@ -49,10 +49,10 @@
         height: 25vw;
         object-fit: cover;
     }
-
+/* 
     .rowClass{
         height:48vw;
-    }
+    } */
  }
 
  /* card-text.description{
@@ -61,13 +61,11 @@
  @media screen and (max-width: 770px) {
     .card-img-top {
         width: 100%;
-        height: 30vw;
+        height: 35vw;
         object-fit: cover;
     }
 
-    .rowClass{
-        height:60vw; 
-    }
+   
 }
 
  @media screen and (max-width: 600px) {
@@ -77,47 +75,49 @@
         object-fit: cover;
     }
 
-    .rowClass{
-        height:85vw;
-  
-    }
+    
 }
 
 /* regular mobil screen */
 @media screen and (max-width: 420px) {
     .card-img-top {
         width: 100%;
-        height: 50vw;
+        height: 70vw;
         object-fit: cover;
     }
 
-    .rowClass{
+    /* .rowClass{
         height:100vw;
   
-    }
+    } */
 }
 
 /* very small screen mobile */
 @media screen and (max-width: 330px) {
     .card-img-top {
         width: 100%;
-        height: 85vw;
+        height: 80vw;
         object-fit: cover;
     }
 
-    .rowClass{
+    /* .rowClass{
         height:150vw;
   
-    }
+    } */
 }
 
 .card:hover{
     background-image: linear-gradient(to right top, #e8c531, #ffb565, #ffaf9e, #ffb8cf, #ffc8ee); 
 }
 
-/* .description{
-    color: purple;
-} */
+.description{
+    /* color: purple; */
+    height: 100px;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
 textarea{
     color:blue;
 }
@@ -142,15 +142,13 @@ img{
 .nav-item{
     font-weight: bold;
 }
+
 @media (min-width: 992px){
 .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 5rem;
     padding-left: 5rem;
 }
 }
-/* .nav-link:hover{
-    border-bottom: 2px solid black;
-} */
 
 /* greeting  */
 .greetingMsg{
@@ -162,6 +160,8 @@ img{
     margin-top: 1rem;
     text-align: center;
 }
+
+
 
 /* search bar */
 .form-inline{
@@ -184,10 +184,6 @@ img{
     background-image: linear-gradient(to right top, #e8c531, #ffb565, #ffaf9e, #ffb8cf, #ffc8ee); 
     
  }
-
- /* .btn-submit:hover{
-     /* background-color: black; */
-     /* background-image: linear-gradient(to right top, #e8c531, #ffb565, #ffaf9e, #ffb8cf, #ffc8ee);  */
 
 
 /* chart.js styling */
