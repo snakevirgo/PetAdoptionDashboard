@@ -116,7 +116,9 @@ let addToDOM = ( element, item) => {
     let div = document.createElement(element);
     let col = document.createElement('div');
     let container = document.createElement('div');
-    let card = document.createElement('div');
+    // let card = document.createElement('div');
+    let card = document.createElement('a');
+
   
     
     let card_body = document.createElement('card-body')
@@ -124,6 +126,7 @@ let addToDOM = ( element, item) => {
     let h3 = document.createElement('h3');
     let title = document.createElement('card-title');
     let caption = document.createElement('div');
+    let card_url = item.url;
    
    
     div.setAttribute('class', 'rowClass');
@@ -132,6 +135,7 @@ let addToDOM = ( element, item) => {
     div.style.margin = "1%"
     col.setAttribute('class', 'column');
     card.setAttribute('class', 'card');
+    card.setAttribute('href', card_url);
 
     if(!`${item.photos}`){
        
@@ -150,8 +154,11 @@ let addToDOM = ( element, item) => {
     image.setAttribute('class', 'card-img-top img-fluid');
 
     container.setAttribute('class', 'container card-body' );
+    h3.style.color = "black"
     h3.innerHTML = item.name;
+
     caption.setAttribute('class', 'description');
+    // caption.style.color = "black"
     caption.innerHTML = item.description;
     title.style.fontSize ="small"
     title.style.textAlign = "center"

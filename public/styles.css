@@ -91,12 +91,21 @@
    
 }
 
+.card {
+    text-decoration: none;
+}
+
 .card:hover{
     background-image: linear-gradient(to right top, #e8c531, #ffb565, #ffaf9e, #ffb8cf, #ffc8ee); 
+    text-decoration: none;
+}
+
+.h3 {
+    color: black;
 }
 
 .description{
-    /* color: purple; */
+    color: purple;
     height: 100px;
     white-space: wrap;
     overflow: hidden;
