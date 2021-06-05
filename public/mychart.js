@@ -52,14 +52,14 @@ async function getPets() {
     
     });
    
-
-  // console.log("This is the organization data");
-  // console.log(pets);
-   if(count === 0){
+//if no city found then output error msg, else display charts and graphs
+  if(count === 0)
+  {
 
       message.innerHTML = "Sorry, no results found. Try again!"
    }
-   else{
+   else
+   {
   //get data for the breeds of cats and dogs
   dataY.forEach((item) => {
     if(item.contact.address.city == city){
@@ -121,7 +121,8 @@ async function getPets() {
   });
 
 let options = {};
-if(count === 0){
+if(count === 0)
+{
   options = {
     responsive: true,
     title: {
@@ -145,31 +146,31 @@ if(count === 0){
   };
 
 }
-else{
-    
-options = {
-  responsive: true,
-  title: {
-    display: true,
-    position: "top",
-    text: "Pet Rescue Organizations in the City of " + city,
-    fontSize: 18,
-    fontColor: "#111"
-  },
-  legend: {
-    display: true,
-    position: "right",
-    
-    labels: {
-      fontColor: "#333",
-      fontSize: 16,
-      padding: 10
+else
+{
+  options = {
+    responsive: true,
+    title: {
+      display: true,
+      position: "top",
+      text: "Pet Rescue Organizations in the City of " + city,
+      fontSize: 18,
+      fontColor: "#111"
+    },
+    legend: {
+      display: true,
+      position: "right",
       
+      labels: {
+        fontColor: "#333",
+        fontSize: 16,
+        padding: 10
+        
+      }
     }
-  }
-};
+  };
 }
-  console.log(pets);
+  
 
   let colors = [];
   let borderColors = [];

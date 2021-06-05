@@ -67,14 +67,14 @@ app.get('/', (request, response) => {
         token_type = data.token_type;
         expires = new Date().getTime() + (data.expires_in * 1000);
 
-        
+        //fetch token
         fetch('https://api.petfinder.com/v2/animals?status=' + status + "&location=" + city +'&limit=100' , {
             headers: {
                 'Authorization': token_type + ' ' + token,
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
         
-
+            //get response
             }).then(function (resp) {
 
                 // Return the API response as JSON
@@ -104,6 +104,7 @@ app.get('/', (request, response) => {
 
 })
 
+//send data over to /jsonDATA for frontend
 app.get('/jsonDATA', (request, response) => {
     response.send(DATA);
 });
@@ -152,18 +153,14 @@ let addToDOM = ( element, item) => {
     h3.innerHTML = item.name;
     caption.setAttribute('class', 'description');
     caption.innerHTML = item.description;
-    // console.log(item.description)
     title.style.fontSize ="small"
     title.style.textAlign = "center"
     title.innerHTML = item.name
 
-       
-    // card.append(card_body);
     div.append(col);
     col.append(card);
     card.append(image);
     card.append(container);
-    // card.append(petlink);
     container.append(h3);
     container.append(caption);
 
