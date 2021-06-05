@@ -5,19 +5,19 @@ let count = 0;
 let chart = document.getElementById("myChart").getContext("2d");
 
 
-
-
 function submitContent()
 {
+
+  //refresh the page every time when there's new input
+ document.querySelector('.form-control')
+ .addEventListener('click', () => {
+     window.location.reload(true);
+ })
+  
    let temp = document.getElementById('searchBar').value;
    const city = temp.charAt(0).toUpperCase() + temp.slice(1);
-   console.log(city);
-  // console.log(searchString);
-  // return searchString;
-
-
-/// { org_id : 2, orgia_id_1: 1 }
-
+ 
+// get url from /jsonDATA
 let url = "http://localhost:8080/jsonDATA";
 async function getPets() {
   let pets = {};
@@ -51,18 +51,15 @@ async function getPets() {
       
     
     });
-    console.log(count);
-    
-    message.innerHTML = "HELLO!!";
-    console.log(message);
-
-  // console.log("This is the organization data");
-  // console.log(pets);
-   if(count === 0){
+   
+//if no city found then output error msg, else display charts and graphs
+  if(count === 0)
+  {
 
       message.innerHTML = "Sorry, no results found. Try again!"
    }
-   else{
+   else
+   {
   //get data for the breeds of cats and dogs
   dataY.forEach((item) => {
     if(item.contact.address.city == city){
@@ -124,7 +121,8 @@ async function getPets() {
   });
 
 let options = {};
-if(count === 0){
+if(count === 0)
+{
   options = {
     responsive: true,
     title: {
@@ -148,32 +146,31 @@ if(count === 0){
   };
 
 }
-else{
-    
-options = {
-  responsive: true,
-  maintainAspectRatio: false,
-  title: {
-    display: true,
-    position: "top",
-    text: "Pet Rescue Organizations in the City of " + city,
-    fontSize: 18,
-    fontColor: "#111"
-  },
-  legend: {
-    display: true,
-    position: "right",
-    
-    labels: {
-      fontColor: "#333",
-      fontSize: 16,
-      padding: 10
+else
+{
+  options = {
+    responsive: true,
+    title: {
+      display: true,
+      position: "top",
+      text: "Pet Rescue Organizations in the City of " + city,
+      fontSize: 18,
+      fontColor: "#111"
+    },
+    legend: {
+      display: true,
+      position: "right",
       
+      labels: {
+        fontColor: "#333",
+        fontSize: 16,
+        padding: 10
+        
+      }
     }
-  }
-};
+  };
 }
-  console.log(pets);
+  
 
   let colors = [];
   let borderColors = [];
@@ -377,7 +374,11 @@ $(window).resize(function(e) {
 
 // search bar 
 getPets(city);
+
+
+
 }
+
 
 
 
