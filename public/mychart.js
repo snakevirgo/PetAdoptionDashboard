@@ -205,8 +205,8 @@ var catBreedBarData = {
 	labels :  Object.keys(catBreedResults),
 	datasets: [{
 		data: Object.values(catBreedResults),
-    borderColor: backgroundColors2,
-    backgroundColor: backgroundColors2,
+    borderColor: colors,
+    backgroundColor: colors,
     borderWidth: 1,
     barPercentage: 0.5,
     barThickness: 3,
@@ -240,8 +240,8 @@ var dogBreedBarData = {
 	labels :  Object.keys(dogBreedResults),
 	datasets: [{
 		data: Object.values(dogBreedResults),
-    borderColor: backgroundColors2,
-    backgroundColor: backgroundColors2,
+    borderColor: colors,
+    backgroundColor: colors,
     borderWidth: 1,
     barPercentage: 0.5,
     barThickness: 6,
@@ -274,8 +274,8 @@ var petsByTypeData = {
 	labels :  Object.keys(petTypeResults),
 	datasets: [{
 		data: Object.values(petTypeResults),
-    borderColor: backgroundColors2,
-    backgroundColor: backgroundColors2,
+    borderColor: colors,
+    backgroundColor: colors,
     borderWidth: 1,
     barPercentage: 0.5,
     barThickness: 6,
