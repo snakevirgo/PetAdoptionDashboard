@@ -91,12 +91,21 @@
    
 }
 
+.card {
+    text-decoration: none;
+}
+
 .card:hover{
     background-image: linear-gradient(to right top, #e8c531, #ffb565, #ffaf9e, #ffb8cf, #ffc8ee); 
+    text-decoration: none;
+}
+
+.h3 {
+    color: black;
 }
 
 .description{
-    /* color: purple; */
+    color: purple;
     height: 100px;
     white-space: wrap;
     overflow: hidden;
@@ -173,47 +182,73 @@ img{
 
 
 /* chart.js styling */
-/* pie chart */
+
+/* pie chart and bar graph*/
 .chart-container{
     position: relative;
-    width: 55%;
-    /* centers chart */
-    margin: auto; 
+    width: 80%;
+    margin: auto;
 }
-
-
-/* bar graphs */
 
 .bar-container {
     position: relative;
-}
-
-.bargraphContainer {
-    display: flex;
-    position: relative;
-    
     width: 100%;
-    max-width: 700px;
-    /* centers chart */
-    margin: 10px; 
+    height: 400px;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 100px;
 }
 
 #catBreedBar, #dogBreedBar, #petTypeBar {
-    display: flex;
-    position: relative;
-    padding: 10px;
-    bottom: 0;
-    left: 0;
+    min-width: 100%;
+    height: 350px;
 }
 
-/* #catBreedBar {
-    background-color: #d7efff;
-    border: 2 solid #ffaf9e;
-    border-color:#ffaf9e
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
+canvas {
+    width: 100% !important;
+    /* height: 100% !important; */
+}
+
+/* responsiveness for chart.js */
+/* @media screen and (max-width: 1200px) {
+    .chart-container{
+        position: relative;
+        width: 80%;
+        margin: auto;
+    }
+    
+    .bar-container {
+        overflow: auto;
+        position: relative;
+        justify-content: center;
+        display: flex;
+        width: 100%;
+        height: 400px;
+        margin: auto; 
+        padding-top: 70px;
+    }
 } */
+
+ /* @media screen and (max-width: 1029px) {
+
+ }
+*/
+ @media screen and (max-width: 770px) {
+    .chart-container{
+        position: relative;
+        width: 100%;
+        margin: auto;
+    }
+}
+
+/* @media screen and (max-width: 600px) {
+
+}
+
+@media screen and (max-width: 330px) {
+
+}  */
+
 
 
 /* footer */
@@ -248,6 +283,56 @@ html, body {
     text-align: left;
     line-height: 30px;
     font-weight: 400;
+}
+
+/* petfinder logo and box */
+.petfinderlogo {
+    display: block;
+    width: 500px;
+    height: 230px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 15px;
+    box-sizing: border-box;
+    position: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(226, 109, 0);
+    background-color: #d6d4e0;
+    border-color: pink;
+    border-radius: 20px;
+    border: 2px;
+
+}
+
+.petfinderlogo:hover {
+    color: #e06377;
+    text-decoration: none;
+    background-color: #c4bfdd;
+}
+
+.logo {
+    justify-content: center;
+    position:relative;
+    margin: auto;
+    height: 100px;
+    width: 350px;
+    
+}
+
+@media screen and (max-width: 600px) {
+    .petfinderlogo {
+        width: 400px;
+        height: 230px;
+    }
+    
+    .logo {
+        height: 70px;
+        width: 240px;
+        
+    }
+
 }
 
 

@@ -150,6 +150,7 @@ else
 {
   options = {
     responsive: true,
+    maintainAspectRatio: false,
     title: {
       display: true,
       position: "top",
@@ -239,8 +240,8 @@ let catBreedBarData = {
 	labels :  Object.keys(catBreedResults),
 	datasets: [{
 		data: Object.values(catBreedResults),
-    borderColor: backgroundColors2,
-    backgroundColor: backgroundColors2,
+    borderColor: colors,
+    backgroundColor: colors,
     borderWidth: 1,
     barPercentage: 0.5,
     barThickness: 3,
@@ -258,6 +259,7 @@ if(count != 0)
     data: catBreedBarData,
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       title: {
         display: true,
         position: "top",
@@ -278,8 +280,8 @@ let dogBreedBarData = {
 	labels :  Object.keys(dogBreedResults),
 	datasets: [{
 		data: Object.values(dogBreedResults),
-    borderColor: backgroundColors2,
-    backgroundColor: backgroundColors2,
+    borderColor: colors,
+    backgroundColor: colors,
     borderWidth: 1,
     barPercentage: 0.5,
     barThickness: 6,
@@ -297,6 +299,7 @@ if(count != 0)
     data: dogBreedBarData,
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       title: {
         display: true,
         position: "top",
@@ -316,11 +319,11 @@ let petsByTypeData = {
 	labels :  Object.keys(petTypeResults),
 	datasets: [{
 		data: Object.values(petTypeResults),
-    borderColor: backgroundColors2,
-    backgroundColor: backgroundColors2,
+    borderColor: colors,
+    backgroundColor: colors,
     borderWidth: 1,
     barPercentage: 0.5,
-    barThickness: 6,
+    barThickness: 4,
     maxBarThickness: 4,
     minBarLength: 2
 	}]
@@ -335,6 +338,7 @@ if(count != 0)
     data: petsByTypeData,
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       title: {
         display: true,
         position: "top",
@@ -355,7 +359,18 @@ if(count != 0)
 
 }
 
-
+if ($(window).width() < 600) {
+  $(".doughnut-legend").hide();
+} else {
+  $(".doughnut-legend").show();
+}
+$(window).resize(function(e) {
+  if ($(this).width() < 600) {
+    $(".doughnut-legend").hide();
+  } else {
+    $(".doughnut-legend").show();
+  }
+});
 
 
 // search bar 
