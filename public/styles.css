@@ -285,6 +285,7 @@ html, body {
     font-weight: 400;
 }
 
+/* petfinder logo and box */
 .petfinderlogo {
     display: block;
     width: 500px;
@@ -331,6 +332,7 @@ html, body {
         width: 240px;
         
     }
+
 }
 
 
