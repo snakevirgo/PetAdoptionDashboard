@@ -1,5 +1,10 @@
 const searchBar = document.getElementById('searchBar');
+const message = document.getElementsByClassName('extra-msg');
 let dataY = [];
+let count = 0;
+let chart = document.getElementById("myChart").getContext("2d");
+
+
 
 
 function submitContent()
@@ -15,22 +20,24 @@ function submitContent()
 
 let url = "http://localhost:8080/jsonDATA";
 async function getPets() {
-  var pets = {};
-  var catDataByLocation = {};
-  var dogDataByLocation = {};
-  var petDataByType = {};
+  let pets = {};
+  let catDataByLocation = {};
+  let dogDataByLocation = {};
+  let petDataByType = {};
 
 
   const response = await fetch(url);
   const dataY = await response.json();
-        // .then(response => response.json())
-        // .then(data => console.log(data))
-        // .then(function(data){
-  // console.log(dataY);
+        
+  //check if city input is undefined
+  if(city == undefined){
+    console.log("Error, data undefined!");
+  }
+    
  
   dataY.forEach((item) => {
         if(item.contact.address.city === city){
-
+          count += 1;
         if(pets[item.organization_id]) {
           pets[item.organization_id] += 1;
         } else {
@@ -38,13 +45,24 @@ async function getPets() {
         } 
         
       }
+      else{
+        count += 0;
+      }
       
     
     });
+    console.log(count);
+    
+    message.innerHTML = "HELLO!!";
+    console.log(message);
 
   // console.log("This is the organization data");
   // console.log(pets);
-    
+   if(count === 0){
+
+      message.innerHTML = "Sorry, no results found. Try again!"
+   }
+   else{
   //get data for the breeds of cats and dogs
   dataY.forEach((item) => {
     if(item.contact.address.city == city){
@@ -90,6 +108,7 @@ async function getPets() {
   });
   // console.log("This is the cat data");
 	// console.log(catDataByLocation);
+}
 
 
   //Bar graph for pets by types
@@ -103,15 +122,40 @@ async function getPets() {
     } 
 
   });
-  
 
+let options = {};
+if(count === 0){
+  options = {
+    responsive: true,
+    title: {
+      display: true,
+      position: "top",
+      text: "Sorry, No Pet Rescue Organizations found in the City of " + city + " . Try again!",
+      fontSize: 18,
+      fontColor: "#111"
+    },
+    legend: {
+      display: true,
+      position: "right",
+      
+      labels: {
+        fontColor: "#333",
+        fontSize: 16,
+        padding: 10
+        
+      }
+    }
+  };
+
+}
+else{
     
-var options = {
+options = {
   responsive: true,
   title: {
     display: true,
     position: "top",
-    text: "Pet Rescue Organizations in City of " + city,
+    text: "Pet Rescue Organizations in the City of " + city,
     fontSize: 18,
     fontColor: "#111"
   },
@@ -127,17 +171,12 @@ var options = {
     }
   }
 };
+}
   console.log(pets);
 
-  var colors = [];
-  var borderColors = [];
+  let colors = [];
+  let borderColors = [];
  
- 
-  // if(pets == {} ){
-  //   console.log("Sorry!");
-  //   var chart = document.getElementById("myChart").getContext("2d");
-  // }
-  // else{
   const result = pets;
   Object.keys(result).forEach((_) => {
     colors.push('#'+Math.floor(Math.random()*16777215).toString(16));
@@ -145,32 +184,29 @@ var options = {
     
   });
   
-var pieData = {
+let pieData = {
   labels :  Object.keys(result),
   datasets: [{
       data: Object.values(result),
       backgroundColor:colors,
-      // borderColor: colors,
+      borderColor: colors,
       hoverOffset: 4,
       hoverBorderWidth:3
   }]
 };
 
 // Get the context of the canvas element we want to select
-
-var chart = document.getElementById("myChart").getContext("2d");
-var myChart = new Chart(chart, {
+let myChart = new Chart(chart, {
   type: 'doughnut',
   data: pieData,
   options: options
 
 });
 
-
-
 const catBreedResults = catDataByLocation;
 const dogBreedResults = dogDataByLocation;
 const petTypeResults = petDataByType;
+
 
 // BAR GRAPHS FOR DIFFERENT TYPES //
 
@@ -201,7 +237,7 @@ let backgroundColors2 = [
 
 
 //Cat breed bar graph
-var catBreedBarData = {
+let catBreedBarData = {
 	labels :  Object.keys(catBreedResults),
 	datasets: [{
 		data: Object.values(catBreedResults),
@@ -215,28 +251,32 @@ var catBreedBarData = {
 	}]
 };
 
-var ctx1 = document.getElementById('catBreedBar').getContext('2d');
-var catBreedChart = new Chart(ctx1, {
-  type: 'bar',
-	data: catBreedBarData,
-	options: {
-    responsive: true,
-    title: {
-      display: true,
-      position: "top",
-      text: "Cats by Breeds in " + city,
-      fontSize: 18,
-      fontColor: "#111"
-    },
-    legend: {
-      display: false
+let ctx1 = document.getElementById('catBreedBar').getContext('2d');
+let catBreedChart;
+if(count != 0)
+{
+  catBreedChart = new Chart(ctx1, {
+    type: 'bar',
+    data: catBreedBarData,
+    options: {
+      responsive: true,
+      title: {
+        display: true,
+        position: "top",
+        text: "Cats by Breeds in " + city,
+        fontSize: 18,
+        fontColor: "#111"
+      },
+      legend: {
+        display: false
+      }
     }
-  }
 
-});
+  });
+}
 
 //Dog breed bar graph
-var dogBreedBarData = {
+let dogBreedBarData = {
 	labels :  Object.keys(dogBreedResults),
 	datasets: [{
 		data: Object.values(dogBreedResults),
@@ -250,27 +290,31 @@ var dogBreedBarData = {
 	}]
 };
 
-var ctx2 = document.getElementById('dogBreedBar').getContext('2d');
-var catBreedChart = new Chart(ctx2, {
-  type: 'bar',
-	data: dogBreedBarData,
-	options: {
-    responsive: true,
-    title: {
-      display: true,
-      position: "top",
-      text: "Dogs by Breeds in " + city,
-      fontSize: 18,
-      fontColor: "#111"
-    },
-    legend: {
-      display: false
+let ctx2 = document.getElementById('dogBreedBar').getContext('2d');
+let dogBreedChart;
+if(count != 0)
+{
+  dogBreedChart = new Chart(ctx2, {
+    type: 'bar',
+    data: dogBreedBarData,
+    options: {
+      responsive: true,
+      title: {
+        display: true,
+        position: "top",
+        text: "Dogs by Breeds in " + city,
+        fontSize: 18,
+        fontColor: "#111"
+      },
+      legend: {
+        display: false
+      }
     }
-  }
-});
+  });
+}
 
 //Pets by type bar graph
-var petsByTypeData = {
+let petsByTypeData = {
 	labels :  Object.keys(petTypeResults),
 	datasets: [{
 		data: Object.values(petTypeResults),
@@ -284,36 +328,41 @@ var petsByTypeData = {
 	}]
 };
 
-var ctx3 = document.getElementById('petTypeBar').getContext('2d');
-var petTypeChart = new Chart(ctx3, {
-  type: 'bar',
-	data: petsByTypeData,
-	options: {
-    responsive: true,
-    title: {
-      display: true,
-      position: "top",
-      text: "Pets by Type in " + city,
-      fontSize: 18,
-      fontColor: "#111"
-    },
-    legend: {
-      display: false
+let ctx3 = document.getElementById('petTypeBar').getContext('2d');
+let petTypeChart;
+if(count != 0)
+{
+  petTypeChart = new Chart(ctx3, {
+    type: 'bar',
+    data: petsByTypeData,
+    options: {
+      responsive: true,
+      title: {
+        display: true,
+        position: "top",
+        text: "Pets by Type in " + city,
+        fontSize: 18,
+        fontColor: "#111"
+      },
+      legend: {
+        display: false
+      }
     }
-  }
-});
-
-// }    //else comment             
+  });
+}
+        
  
-
 //Adding Bargraph cat and dog breed data to be displayed
 
 
 }
 
 
+
+
 // search bar 
 getPets(city);
 }
+
 
 
