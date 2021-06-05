@@ -5,19 +5,19 @@ let count = 0;
 let chart = document.getElementById("myChart").getContext("2d");
 
 
-
-
 function submitContent()
 {
+
+  //refresh the page every time when there's new input
+ document.querySelector('.form-control')
+ .addEventListener('click', () => {
+     window.location.reload(true);
+ })
+  
    let temp = document.getElementById('searchBar').value;
    const city = temp.charAt(0).toUpperCase() + temp.slice(1);
-   console.log(city);
-  // console.log(searchString);
-  // return searchString;
-
-
-/// { org_id : 2, orgia_id_1: 1 }
-
+ 
+// get url from /jsonDATA
 let url = "http://localhost:8080/jsonDATA";
 async function getPets() {
   let pets = {};
@@ -51,10 +51,7 @@ async function getPets() {
       
     
     });
-    console.log(count);
-    
-    message.innerHTML = "HELLO!!";
-    console.log(message);
+   
 
   // console.log("This is the organization data");
   // console.log(pets);
@@ -362,7 +359,11 @@ if(count != 0)
 
 // search bar 
 getPets(city);
+
+
+
 }
+
 
 
 
