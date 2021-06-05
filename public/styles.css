@@ -285,5 +285,53 @@ html, body {
     font-weight: 400;
 }
 
+.petfinderlogo {
+    display: block;
+    width: 500px;
+    height: 230px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 15px;
+    box-sizing: border-box;
+    position: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(226, 109, 0);
+    background-color: #d6d4e0;
+    border-color: pink;
+    border-radius: 20px;
+    border: 2px;
+
+}
+
+.petfinderlogo:hover {
+    color: #e06377;
+    text-decoration: none;
+    background-color: #c4bfdd;
+}
+
+.logo {
+    justify-content: center;
+    position:relative;
+    margin: auto;
+    height: 100px;
+    width: 350px;
+    
+}
+
+@media screen and (max-width: 600px) {
+    .petfinderlogo {
+        width: 400px;
+        height: 230px;
+    }
+    
+    .logo {
+        height: 70px;
+        width: 240px;
+        
+    }
+}
+
 
 /* Accessibility and Mobile View */
