@@ -142,15 +142,14 @@ img{
 .nav-item{
     font-weight: bold;
 }
-
-/* .nav-item::after {
-    font-weight: bold;
-    color: red;
-} */
-
-/* .nav-link::after {
-    font-weight: normal;
-    color: red;
+@media (min-width: 992px){
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 5rem;
+    padding-left: 5rem;
+}
+}
+/* .nav-link:hover{
+    border-bottom: 2px solid black;
 } */
 
 /* greeting  */
