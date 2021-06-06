@@ -51,6 +51,7 @@ Authors: Yan Li, Minjin Enkhjargal
 
 #### Npm Packages:
 - [Axios](https://www.npmjs.com/package/axios)
+- [JSDOM](https://www.npmjs.com/package/jsdom)
 
 ### Additional Resources Used:
 - https://gomakethings.com/using-oauth-with-fetch-in-vanilla-js/
@@ -58,6 +59,8 @@ Authors: Yan Li, Minjin Enkhjargal
 - https://www.chartjs.org/
 - https://github.com/jtblin/angular-chart.js/issues/614
 - https://www.youtube.com/watch?v=gtluv28qsGY
+- https://mycolor.space/gradient?ori=to+right+top&hex=%23013F5E&hex2=%23FDA9B2&sub=1
+- https://devcenter.heroku.com/articles/deploying-nodejs
 
 #### Resources:
 - [PetFinder Developer Documentation](https://www.petfinder.com/developers/v2/docs/)
