@@ -112,12 +112,12 @@
 }
 
 .description{
-    /* color: black; */
-    color: purple;
+    color: black;
     height: 100px;
     white-space: wrap;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
+    text-align: left; 
 }
 
 textarea{
