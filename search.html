@@ -51,9 +51,9 @@
           <!-- end of greeting -->
           <div class="row">
             <div class="col-12">
-              <h6 class="mt-3 mb-4 mx-auto ">If the city you entered has pet rescue organizations then it should show some statistics about
-                    their adoptable pets. There should be a donut chart with each slice representing each organization by its organization 
-                    ID. When hovered, the organization ID and the counts of adoptable pets available will be shown. 
+              <h6 class="mt-3 mb-4 mx-auto ">If the city you entered has pet rescue organizations, then it should show some statistics about
+                    their adoptable pets (pulled from sample data). There should be a donut chart with each slice representing an organization 
+                    by its organization ID. Upon hover, the organization ID and the counts of adoptable pets available will be shown. 
                     In addition, information about breeds and pet types will be represented in bar graphs. 
               </h6>
               <!-- search bar -->
@@ -63,15 +63,15 @@
                     placeholder="Enter a city from Oregon. (i.e.: Portland)"/>
                 <div class="button">
                   <!-- <label for="submit"></label> -->
-                    <button type="button" id="submit" name="submit" class="btn btn-submit my-2 my-sm-0 submiting" onClick="submitContent()" >Search</button>
+                  <button type="button" id="submit" name="submit" class="btn btn-submit my-2 my-sm-0 submiting" onClick="submitContent()" >Search</button>
                 </div>
               </form>    
+              
               <!-- chart -->
               <div class="chart-container col-12 mt-4" style="width: 400; height: 400">
                 <canvas id="myChart" class="col-12" aria-label="pie chart" role="img"></canvas>
               </div>
-              
-              
+       
               <!-- bargraphs -->
               <div class="bar-container">
                 <div class="row" id="bar-row"> 
@@ -90,12 +90,9 @@
             </div>
           </div>
         </section>
-    
       </main>
-    
     </div>
   </div>
-
 
   <footer id="footer">
     <small id="copyright">&copy; Copyright 2021. Petfinder Dashboard</small>
