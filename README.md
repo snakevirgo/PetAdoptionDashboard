@@ -4,26 +4,34 @@ Front-end Web Development ~ Final Project Spring 2021
 Authors: Yan Li, Minjin Enkhjargal 
 
 ### Project Goals/Concepts:
-
+- The goal was to build a front-end dashboard application using an API to display key metrics and data points from the API. 
+- The dashboard should include accessibility and responsivess as part of the final project application.
+- The API used for this project was the PetFinder API.
 
 ### Deployment:
-
 - https://pao-pet-adoption-dashboard.herokuapp.com/
 
 
 ### To Run Project Locally:
 
 1. Make sure to installed the following: [NodeJs](https://nodejs.org/en/), [Express](https://expressjs.com/), [Npm](https://www.npmjs.com/), & [Axios](https://www.npmjs.com/package/axios)
-
 2. Run the project web server with:
     node app.js
 3. Navigate to the following:
     http://localhost:8080/
-
-### Languages, Frameworks & Libraries:
--
--
--
+    
+### Description of Features
+1. Home (home.html and app.js)
+- User can scroll through a sample of pets available in Oregon shelters.
+- Clicking on the pet's image or description leads to the pet's PetFinder URL
+2. Search (search.html and mychart.js)
+- User can search for pets in a city in Oregon and display different charts
+- Donut chart shows number of adoptable pets in different Oregon shelters
+- Bar graphs shows number of adoptable pets by different breeds and types.
+3. About (about.html)
+- About page provides information about the Petfinder Dashboard and leads to the Petfinder website for more resources. 
+4. styles.css
+- Styling used for the HTML pages and charts 
 
 #### Languages:
 - HTML
@@ -31,7 +39,7 @@ Authors: Yan Li, Minjin Enkhjargal
 - Javascript
 
 #### API:
-- [Petfinder]()
+- [Petfinder](https://www.petfinder.com/)
 
 #### Frameworks, Libraries, & Utilizations:
 - [NodeJS](https://nodejs.org/en/)
@@ -43,11 +51,15 @@ Authors: Yan Li, Minjin Enkhjargal
 #### Npm Packages:
 - [Axios](https://www.npmjs.com/package/axios)
 
-
 ### Additional Resources Used:
+- https://gomakethings.com/using-oauth-with-fetch-in-vanilla-js/
+- https://www.youtube.com/watch?v=Ju5FGcyifEA
+- https://www.chartjs.org/
+- https://github.com/jtblin/angular-chart.js/issues/614
+- https://www.youtube.com/watch?v=gtluv28qsGY
 
 #### Resources:
-- [Mozilla Developer Documentation](https://developer.mozilla.org/en-US/)
+- [PetFinder Developer Documentation](https://www.petfinder.com/developers/v2/docs/)
 
 
 #### Accessiblity: 
