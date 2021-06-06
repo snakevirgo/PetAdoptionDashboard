@@ -21,18 +21,19 @@ Authors: Yan Li, Minjin Enkhjargal
     http://localhost:8080/
     
 ### Description of Features
-1. Home (home.html and app.js)
+#### Home (home.html and app.js)
 - User can scroll through a sample of pets available in Oregon shelters.
 - Clicking on the pet's image or description leads to the pet's PetFinder URL
-2. Search (search.html and mychart.js)
+#### Search (search.html and mychart.js)
 - User can search for pets in a city in Oregon and display different charts
 - Donut chart shows number of adoptable pets in different Oregon shelters
 - Bar graphs shows number of adoptable pets by different breeds and types.
-3. About (about.html)
+#### About (about.html)
 - About page provides information about the Petfinder Dashboard and leads to the Petfinder website for more resources. 
-4. Styling (styles.css)
+#### Styling (styles.css)
 - Styling rules used for the HTML pages and charts to make pages responsive and accessible
 
+### Stack and Framework
 #### Languages:
 - HTML
 - CSS
