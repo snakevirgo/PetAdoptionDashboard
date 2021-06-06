@@ -30,8 +30,8 @@ Authors: Yan Li, Minjin Enkhjargal
 - Bar graphs shows number of adoptable pets by different breeds and types.
 3. About (about.html)
 - About page provides information about the Petfinder Dashboard and leads to the Petfinder website for more resources. 
-4. styles.css
-- Styling used for the HTML pages and charts 
+4. Styling (styles.css)
+- Styling rules used for the HTML pages and charts to make pages responsive and accessible
 
 #### Languages:
 - HTML
