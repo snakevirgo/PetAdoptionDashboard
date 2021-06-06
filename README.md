@@ -3,7 +3,7 @@
 Front-end Web Development ~ Final Project Spring 2021
 Authors: Yan Li, Minjin Enkhjargal 
 
-### Project Goals/Concept:
+### Project Goals/Concepts:
 
 
 ### Deployment:
