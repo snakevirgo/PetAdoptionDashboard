@@ -18,7 +18,7 @@ function submitContent()
    const city = temp.charAt(0).toUpperCase() + temp.slice(1);
  
 // get url from /jsonDATA
-let url = "http://localhost:8080/jsonDATA";
+let url = "/jsonDATA";
 async function getPets() {
   let pets = {};
   let catDataByLocation = {};
